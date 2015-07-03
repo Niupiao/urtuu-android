@@ -1,14 +1,8 @@
-package ohjoseph.com.urtuu.ecommerce.HomePage;
+package ohjoseph.com.urtuu;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-
-import ohjoseph.com.urtuu.ecommerce.Tabs.AccountFragment;
-import ohjoseph.com.urtuu.ecommerce.Tabs.BrowseFragment;
-import ohjoseph.com.urtuu.ecommerce.Tabs.ExploreFragment;
-import ohjoseph.com.urtuu.ecommerce.Tabs.SellFragment;
-import ohjoseph.com.urtuu.ecommerce.Tabs.ShopFragment;
 
 /**
  * Created by Joseph on 7/3/15.
@@ -32,15 +26,20 @@ public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new BrowseFragment();
+            return BrowseFragment.newInstance(position+1);
         } else if (position == 1) {
-            return new ShopFragment();
+            return ShopFragment.newInstance(position+1);
         } else if (position == 2) {
-            return new ExploreFragment();
+            return ExploreFragment.newInstance(position+1);
         } else if (position == 3) {
-            return new SellFragment();
+            return SellFragment.newInstance(position+1);
         } else {
-            return new AccountFragment();
+            return AccountFragment.newInstance(position+1);
         }
+    }
+
+    @Override
+    public String getPageTitle(int position) {
+        return Titles[position];
     }
 }
