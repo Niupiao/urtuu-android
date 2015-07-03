@@ -1,8 +1,13 @@
-package ohjoseph.com.urtuu;
+package ohjoseph.com.urtuu.Home;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+
+import ohjoseph.com.urtuu.Tabs.BrowseFragment;
+import ohjoseph.com.urtuu.Tabs.ExploreFragment;
+import ohjoseph.com.urtuu.Tabs.SellFragment;
+import ohjoseph.com.urtuu.Tabs.ShopFragment;
 
 /**
  * Created by Joseph on 7/3/15.
@@ -26,13 +31,13 @@ public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return BrowseFragment.newInstance(position+1);
+            return BrowseFragment.newInstance(position + 1);
         } else if (position == 1) {
-            return ShopFragment.newInstance(position+1);
+            return ShopFragment.newInstance(position + 1);
         } else if (position == 2) {
-            return ExploreFragment.newInstance(position+1);
+            return ExploreFragment.newInstance(position + 1);
         } else if (position == 3) {
-            return SellFragment.newInstance(position+1);
+            return SellFragment.newInstance(position + 1);
         } else {
             return AccountFragment.newInstance(position+1);
         }

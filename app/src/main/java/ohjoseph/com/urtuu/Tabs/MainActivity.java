@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu;
+package ohjoseph.com.urtuu.Tabs;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import ohjoseph.com.urtuu.Home.FragmentAdapter;
+import ohjoseph.com.urtuu.R;
 
 
 public class MainActivity extends AppCompatActivity {

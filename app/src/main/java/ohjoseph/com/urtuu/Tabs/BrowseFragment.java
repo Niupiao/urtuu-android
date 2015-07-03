@@ -1,10 +1,12 @@
-package ohjoseph.com.urtuu;
+package ohjoseph.com.urtuu.Tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ohjoseph.com.urtuu.R;
 
 /**
  * Created by Joseph on 7/3/15.
