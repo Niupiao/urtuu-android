@@ -23,7 +23,7 @@ public class ExpandAnimation extends Animation {
      * @param view The layout we want to animate
      * @param duration The duration of the animation, in ms
      */
-    public ExpandAnimation(View view, int duration) {
+    public ExpandAnimation(final View view, int duration) {
 
         setDuration(duration);
         mAnimatedView = view;

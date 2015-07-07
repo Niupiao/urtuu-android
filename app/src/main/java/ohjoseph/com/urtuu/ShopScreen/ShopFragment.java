@@ -1,10 +1,10 @@
 package ohjoseph.com.urtuu.ShopScreen;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +12,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import ohjoseph.com.urtuu.Shared.Category;
-import ohjoseph.com.urtuu.Shared.DataSource;
 import ohjoseph.com.urtuu.R;
+import ohjoseph.com.urtuu.Shared.Category;
+import ohjoseph.com.urtuu.Shared.CustomLayoutManager;
+import ohjoseph.com.urtuu.Shared.DataSource;
+import ohjoseph.com.urtuu.Shared.ExpandAnimation;
+import ohjoseph.com.urtuu.Shared.Subcategory;
 
 /**
  * Created by Joseph on 7/3/15.
@@ -29,7 +33,7 @@ public class ShopFragment extends Fragment {
     private int mPage;
     ShopItemAdapter mShopItemAdapter;
     ArrayList<Category> mCategories;
-    LinearLayoutManager llm;
+    CustomLayoutManager clm;
     RecyclerView mRecyclerView;
 
     public static ShopFragment newInstance(int page) {
@@ -56,13 +60,14 @@ public class ShopFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shop, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.shop_recycler_view);
-        llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(llm);
+        clm = new CustomLayoutManager(getActivity());
+        clm.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(clm);
         mRecyclerView.setAdapter(mShopItemAdapter);
 
         return view;
     }
+
 /*
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
@@ -72,10 +77,6 @@ public class ShopFragment extends Fragment {
         } else {
             l.smoothScrollToPositionFromTop(position, 0, 100);
         }
-        // Expands subcategories
-        LinearLayout subCats = (LinearLayout) v.findViewById(R.id.subcategory_view);
-        ExpandAnimation expand = new ExpandAnimation(subCats, 100);
-        v.startAnimation(expand);
     }
     */
 
@@ -96,24 +97,21 @@ public class ShopFragment extends Fragment {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = getAdapterPosition();
-                    Log.d("position", pos + "");
-                    llm.scrollToPositionWithOffset(pos, 10);
+                    ExpandAnimation expand = new ExpandAnimation(subCatView, 200);
+                    v.startAnimation(expand);
 
-                    // Show or hide subcategories
-                    if (subCatView.getVisibility() == View.GONE) {
-                        subCatView.setVisibility(View.VISIBLE);
-                    } else {
-                        subCatView.setVisibility(View.GONE);
-                    }
+                    int pos = getAdapterPosition();
+                    mRecyclerView.smoothScrollToPosition(pos);
                 }
             });
         }
     }
 
+
     public class ShopItemAdapter extends RecyclerView.Adapter<CategoryHolder> {
 
         ArrayList<Category> categories;
+        ArrayList<Subcategory> subs;
 
         public ShopItemAdapter(ArrayList<Category> categories) {
             this.categories = categories;
@@ -132,15 +130,16 @@ public class ShopFragment extends Fragment {
         public void onBindViewHolder(CategoryHolder holder, int i) {
             Category c = categories.get(i);
             holder.titleText.setText(c.getName());
+            subs = c.getSubCategories();
             //holder.pictureView.setImageResource(c.getPicture());
-            /* TODO: Scale pictures to size
-            ArrayList<String> subs = c.getSubCategories();
+            // TODO: Scale pictures to size
+
             LayoutInflater inflater = (LayoutInflater) getActivity()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            for (int x=0; x<subs.size(); x++) {
-                View stub = inflater.inflate(R.layout.list_item_subcategory, null);
-                stub.setOnClickListener(new View.OnClickListener() {
+            for (int x = 0; x < subs.size(); x++) {
+                View subcategory = inflater.inflate(R.layout.list_item_subcategory, holder.subCatView, false);
+                subcategory.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getActivity(),
@@ -149,10 +148,10 @@ public class ShopFragment extends Fragment {
                     }
                 });
 
-                TextView subName = (TextView) stub.findViewById(R.id.subcategory_item);
-                subName.setText(subs.get(x));
-                holder.subCatView.addView(stub, x);
-            } */
+                TextView subName = (TextView) subcategory.findViewById(R.id.subcategory_item);
+                subName.setText(subs.get(x).getName());
+                holder.subCatView.addView(subcategory);
+            }
         }
 
         @Override

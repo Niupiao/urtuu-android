@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class Category {
 
     String mName;
-    ArrayList<String> mSubCategories;
+    ArrayList<Subcategory> mSubCategories;
     int mPicture;
 
-    public Category(String name, int picture, ArrayList<String> subs) {
+    public Category(String name, int picture, ArrayList<Subcategory> subs) {
         mName = name;
         mPicture = picture;
         mSubCategories = subs;
@@ -29,11 +29,11 @@ public class Category {
         mName = name;
     }
 
-    public ArrayList<String> getSubCategories() {
+    public ArrayList<Subcategory> getSubCategories() {
         return mSubCategories;
     }
 
-    public void setSubCategories(ArrayList<String> subCategories) {
+    public void setSubCategories(ArrayList<Subcategory> subCategories) {
         mSubCategories = subCategories;
     }
 

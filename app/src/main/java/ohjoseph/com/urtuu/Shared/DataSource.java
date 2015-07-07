@@ -30,15 +30,16 @@ public class DataSource {
 
     private void createMaps() {
         mCategories = new ArrayList<>();
-        ArrayList<String> subs = new ArrayList<>();
+        ArrayList<Subcategory> subs = new ArrayList<>();
         for (int i=1; i<6; i++) {
-            subs.add("Category " + i);
+            Subcategory sc = new Subcategory("Category " + i);
+            subs.add(sc);
         }
 
-        mCategories.add(new Category("All", R.drawable.all, null));
+        mCategories.add(new Category("All", R.drawable.all, subs));
         mCategories.add(new Category("Baby", R.drawable.baby_products, subs));
         mCategories.add(new Category("Beauty", R.drawable.beauty_products, subs));
-        mCategories.add(new Category("Recommended", R.drawable.all, null));
+        mCategories.add(new Category("Recommended", R.drawable.all, subs));
     }
 
     public ArrayList getCategories() {

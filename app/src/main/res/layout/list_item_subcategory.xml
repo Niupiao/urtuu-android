@@ -3,13 +3,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="16dp">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/subcategory_item"
-        android:background="#bcbcbc"/>
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
 
     <TextView
         android:id="@+id/subcategory_item"
@@ -17,6 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
+        android:textSize="12sp"
         android:text="SubCategory"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/subcategory_item"
+        android:background="#bcbcbc"/>
 
 </RelativeLayout>
