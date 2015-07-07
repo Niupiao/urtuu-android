@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
+import ohjoseph.com.urtuu.Tabs.AccountFragment;
 import ohjoseph.com.urtuu.Tabs.BrowseFragment;
 import ohjoseph.com.urtuu.Tabs.ExploreFragment;
 import ohjoseph.com.urtuu.Tabs.SellFragment;
@@ -39,7 +40,7 @@ public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter
         } else if (position == 3) {
             return SellFragment.newInstance(position + 1);
         } else {
-            return AccountFragment.newInstance(position+1);
+            return AccountFragment.newInstance(position + 1);
         }
     }
 

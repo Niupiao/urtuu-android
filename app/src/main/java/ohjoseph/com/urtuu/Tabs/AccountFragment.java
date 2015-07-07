@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Home;
+package ohjoseph.com.urtuu.Tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
