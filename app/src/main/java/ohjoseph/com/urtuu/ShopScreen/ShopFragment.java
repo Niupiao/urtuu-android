@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Tabs;
+package ohjoseph.com.urtuu.ShopScreen;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ohjoseph.com.urtuu.Category;
-import ohjoseph.com.urtuu.DataSource;
+import ohjoseph.com.urtuu.Shared.Category;
+import ohjoseph.com.urtuu.Shared.DataSource;
 import ohjoseph.com.urtuu.R;
 
 /**

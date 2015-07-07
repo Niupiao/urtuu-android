@@ -1,7 +1,8 @@
-package ohjoseph.com.urtuu.Home;
+package ohjoseph.com.urtuu.Shared;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        // Adds backstack listener to handle up navigation
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                // Checks if back navigation is safe
+                shouldDisplayHomeUp();
+            }
+        });
+        // Set up toolbar as action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -48,4 +58,17 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void shouldDisplayHomeUp() {
+        boolean canBack = getSupportFragmentManager().getBackStackEntryCount() > 0;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(canBack);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Pops the fragment at the top of the stack
+        getSupportFragmentManager().popBackStack();
+        return true;
+    }
+
 }

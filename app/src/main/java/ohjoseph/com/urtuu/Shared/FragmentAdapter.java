@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Home;
+package ohjoseph.com.urtuu.Shared;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,7 @@ import ohjoseph.com.urtuu.Tabs.AccountFragment;
 import ohjoseph.com.urtuu.Tabs.BrowseFragment;
 import ohjoseph.com.urtuu.Tabs.ExploreFragment;
 import ohjoseph.com.urtuu.Tabs.SellFragment;
-import ohjoseph.com.urtuu.Tabs.ShopFragment;
+import ohjoseph.com.urtuu.ShopScreen.ShopFragment;
 
 /**
  * Created by Joseph on 7/3/15.
@@ -16,7 +16,7 @@ import ohjoseph.com.urtuu.Tabs.ShopFragment;
 public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter {
 
     final int PAGE_COUNT = 5;
-    final String[] Titles = {"Browse", "Shop", "Explore", "Sell", "Account"};
+    final String[] Titles = {"Look", "Shop", "Spark", "Sell", "Me"};
     private Context mContext;
 
     public FragmentAdapter(FragmentManager fm, Context context) {

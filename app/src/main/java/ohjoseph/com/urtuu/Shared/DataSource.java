@@ -1,8 +1,10 @@
-package ohjoseph.com.urtuu;
+package ohjoseph.com.urtuu.Shared;
 
 import android.content.Context;
 
 import java.util.ArrayList;
+
+import ohjoseph.com.urtuu.R;
 
 /**
  * Created by Joseph on 7/6/15.
