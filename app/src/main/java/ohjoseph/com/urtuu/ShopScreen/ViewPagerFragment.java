@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.Shared.FragmentAdapter;
+import ohjoseph.com.urtuu.Main.FragmentAdapter;
 
 /**
  * Created by Joseph on 7/8/15.

@@ -1,16 +1,19 @@
-package ohjoseph.com.urtuu.Shared;
+package ohjoseph.com.urtuu.Main;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.ShopScreen.ViewPagerFragment;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Inflate the viewpager fragment
-        if (findViewById(R.id.fragment_container) != null) {
-            ViewPagerFragment viewFrag = new ViewPagerFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, viewFrag)
-                    .addToBackStack(null).commit();
-        }
+        // Get ViewPager and set its PagerAdapter to handle Fragments
+        mViewPager = (ViewPager) findViewById(R.id.viewPager_main_tabs);
+        mViewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), this));
+
+        // Connect TabLayout with the Viewpager
+        TabLayout tabs = (TabLayout) findViewById(R.id.bottom_tabs);
+        tabs.setupWithViewPager(mViewPager);
     }
 
     @Override

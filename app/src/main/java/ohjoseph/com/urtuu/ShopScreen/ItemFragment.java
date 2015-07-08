@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.Shared.MainActivity;
+import ohjoseph.com.urtuu.Main.MainActivity;
 
 /**
  * Created by Joseph on 7/7/15.

@@ -13,10 +13,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import ohjoseph.com.urtuu.Data.Item;
+import ohjoseph.com.urtuu.Data.Subcategory;
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.Shared.Item;
-import ohjoseph.com.urtuu.Shared.MainActivity;
-import ohjoseph.com.urtuu.Shared.Subcategory;
 
 /**
  * Created by Joseph on 7/7/15.
@@ -24,6 +23,7 @@ import ohjoseph.com.urtuu.Shared.Subcategory;
 public class BuyItemListFragment extends Fragment {
 
     public static final String EXTRA_SUBCATEGORY = "Subcategory name";
+    public static final String EXTRA_CATEGORY = "Category name";
 
     ArrayList<Item> mItems;
     ItemListAdapter mAdapter;
@@ -43,7 +43,6 @@ public class BuyItemListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mToolbar = ((MainActivity) getActivity()).getSupportActionBar();
 
         Bundle args = getArguments();
         if (args != null) {
@@ -109,4 +108,5 @@ public class BuyItemListFragment extends Fragment {
             return items.size();
         }
     }
+
 }

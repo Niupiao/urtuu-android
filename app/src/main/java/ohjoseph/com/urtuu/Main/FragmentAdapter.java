@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Shared;
+package ohjoseph.com.urtuu.Main;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

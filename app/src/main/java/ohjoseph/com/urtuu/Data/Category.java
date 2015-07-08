@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Shared;
+package ohjoseph.com.urtuu.Data;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,16 @@ public class Category {
         mName = name;
     }
 
-        public String getName() {
+    public Subcategory getSubcategory(String name) {
+        for (Subcategory s : mSubCategories) {
+            if (s.getName().equals(name)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
         return mName;
     }
 

@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Shared;
+package ohjoseph.com.urtuu.Data;
 
 import java.util.ArrayList;
 

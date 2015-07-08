@@ -1,6 +1,7 @@
 package ohjoseph.com.urtuu.ShopScreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,12 +16,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ohjoseph.com.urtuu.Data.Category;
+import ohjoseph.com.urtuu.Data.DataSource;
+import ohjoseph.com.urtuu.Data.Subcategory;
+import ohjoseph.com.urtuu.Main.CustomLayoutManager;
+import ohjoseph.com.urtuu.Main.ExpandAnimation;
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.Shared.Category;
-import ohjoseph.com.urtuu.Shared.CustomLayoutManager;
-import ohjoseph.com.urtuu.Shared.DataSource;
-import ohjoseph.com.urtuu.Shared.ExpandAnimation;
-import ohjoseph.com.urtuu.Shared.Subcategory;
 
 /**
  * Created by Joseph on 7/3/15.
@@ -74,9 +75,11 @@ public class ShopFragment extends Fragment {
         protected ImageView pictureView;
         protected RelativeLayout card;
         LinearLayout subCatView;
+        View buttonView;
 
         public CategoryHolder(View itemView) {
             super(itemView);
+            buttonView = itemView;
             titleText = (TextView) itemView.findViewById(R.id.shop_item_name);
             pictureView = (ImageView) itemView.findViewById(R.id.shop_item_picture);
             card = (RelativeLayout) itemView;
@@ -114,8 +117,8 @@ public class ShopFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(CategoryHolder holder, int position) {
-            Category c = categories.get(position);
+        public void onBindViewHolder(final CategoryHolder holder, int position) {
+            final Category c = categories.get(position);
             holder.titleText.setText(c.getName());
             subs = c.getSubCategories();
             // Calculates size of image to be displayed
@@ -133,12 +136,15 @@ public class ShopFragment extends Fragment {
                         // Handle subcategory clicks
                         Subcategory s = (Subcategory) v.getTag();
 
+                        // Close the category
+                        ExpandAnimation expand = new ExpandAnimation(holder.subCatView, 100);
+                        v.startAnimation(expand);
+
                         // Open corresponding subcategory list
-                        android.support.v4.app.FragmentTransaction transaction =
-                                getActivity().getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.fragment_container, BuyItemListFragment.newInstance(s));
-                        transaction.addToBackStack(null);
-                        transaction.commit();
+                        Intent i = new Intent(getActivity(), ItemListActivity.class);
+                        i.putExtra(BuyItemListFragment.EXTRA_CATEGORY, c.getName());
+                        i.putExtra(BuyItemListFragment.EXTRA_SUBCATEGORY, s.getName());
+                        startActivity(i);
                     }
                 });
 
