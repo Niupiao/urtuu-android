@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:scaleType="centerCrop"
         android:background="@android:color/holo_green_light"/>
 
     <TextView
@@ -20,7 +21,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="155dp"
         android:background="#CCFFFFFF"
         android:gravity="center"
         android:paddingBottom="2dp"
@@ -28,7 +29,7 @@
         android:paddingRight="10dp"
         android:paddingTop="2dp"
         android:text="Baby"
-        android:textSize="10sp"/>
+        android:textSize="14sp"/>
 
     <LinearLayout
         android:id="@+id/subcategory_view"

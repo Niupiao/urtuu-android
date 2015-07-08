@@ -107,7 +107,6 @@ public class ShopFragment extends Fragment {
         }
     }
 
-
     public class ShopItemAdapter extends RecyclerView.Adapter<CategoryHolder> {
 
         ArrayList<Category> categories;
@@ -131,8 +130,8 @@ public class ShopFragment extends Fragment {
             Category c = categories.get(i);
             holder.titleText.setText(c.getName());
             subs = c.getSubCategories();
-            //holder.pictureView.setImageResource(c.getPicture());
-            // TODO: Scale pictures to size
+            // Calculates size of image to be displayed
+            holder.pictureView.setImageResource(c.getPicture());
 
             LayoutInflater inflater = (LayoutInflater) getActivity()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
