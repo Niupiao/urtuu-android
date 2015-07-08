@@ -12,6 +12,11 @@ public class Subcategory {
 
     public Subcategory(String name) {
         mName = name;
+        mItems = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Item item = new Item("Item " + i);
+            mItems.add(item);
+        }
     }
 
     public ArrayList<Item> getItems() {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ohjoseph.com.urtuu.Shared.NonSwipeableViewPager
+        android:id="@+id/viewPager_main_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/bottom_tabs"
+        android:layout_gravity="top"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/bottom_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:tabGravity="fill"
+        app:tabMode="fixed"/>
+
+</RelativeLayout>

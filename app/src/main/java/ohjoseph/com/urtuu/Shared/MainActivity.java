@@ -1,45 +1,34 @@
 package ohjoseph.com.urtuu.Shared;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import ohjoseph.com.urtuu.R;
+import ohjoseph.com.urtuu.ShopScreen.ViewPagerFragment;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        // Adds backstack listener to handle up navigation
-        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                // Checks if back navigation is safe
-                shouldDisplayHomeUp();
-            }
-        });
+
         // Set up toolbar as action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Get ViewPager and set its PagerAdapter to handle Fragments
-        mViewPager = (ViewPager) findViewById(R.id.viewPager_main_tabs);
-        mViewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), this));
-
-        // Connect TabLayout with the Viewpager
-        TabLayout tabs = (TabLayout) findViewById(R.id.bottom_tabs);
-        tabs.setupWithViewPager(mViewPager);
+        // Inflate the viewpager fragment
+        if (findViewById(R.id.fragment_container) != null) {
+            ViewPagerFragment viewFrag = new ViewPagerFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, viewFrag)
+                    .addToBackStack(null).commit();
+        }
     }
 
     @Override
@@ -57,11 +46,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void shouldDisplayHomeUp() {
-        boolean canBack = getSupportFragmentManager().getBackStackEntryCount() > 0;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(canBack);
     }
 
     @Override

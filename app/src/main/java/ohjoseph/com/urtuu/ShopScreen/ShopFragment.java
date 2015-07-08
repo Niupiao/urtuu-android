@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -64,21 +63,10 @@ public class ShopFragment extends Fragment {
         clm.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(clm);
         mRecyclerView.setAdapter(mShopItemAdapter);
+        mRecyclerView.setHasFixedSize(true);
 
         return view;
     }
-
-/*
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        // Scrolls the selected list item to the top
-        if (position == 0) {
-            l.smoothScrollToPositionFromTop(position, 40, 100);
-        } else {
-            l.smoothScrollToPositionFromTop(position, 0, 100);
-        }
-    }
-    */
 
     public class CategoryHolder extends RecyclerView.ViewHolder {
 
@@ -117,7 +105,7 @@ public class ShopFragment extends Fragment {
         }
 
         @Override
-        public CategoryHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        public CategoryHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.list_item_shop, viewGroup, false);
@@ -126,8 +114,8 @@ public class ShopFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(CategoryHolder holder, int i) {
-            Category c = categories.get(i);
+        public void onBindViewHolder(CategoryHolder holder, int position) {
+            Category c = categories.get(position);
             holder.titleText.setText(c.getName());
             subs = c.getSubCategories();
             // Calculates size of image to be displayed
@@ -138,12 +126,19 @@ public class ShopFragment extends Fragment {
 
             for (int x = 0; x < subs.size(); x++) {
                 View subcategory = inflater.inflate(R.layout.list_item_subcategory, holder.subCatView, false);
+                subcategory.setTag(subs.get(x));
                 subcategory.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity(),
-                                ((TextView) v.findViewById(R.id.subcategory_item)).getText() + "clicked",
-                                Toast.LENGTH_SHORT).show();
+                        // Handle subcategory clicks
+                        Subcategory s = (Subcategory) v.getTag();
+
+                        // Open corresponding subcategory list
+                        android.support.v4.app.FragmentTransaction transaction =
+                                getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.fragment_container, BuyItemListFragment.newInstance(s));
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                     }
                 });
 
