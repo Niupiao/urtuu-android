@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="60dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Test Item"
+    <View
+        android:id="@+id/item_picture"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="200dp"
+        android:background="@android:color/holo_green_light" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@id/item_picture"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Test Item"/>
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="13.99 USD"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

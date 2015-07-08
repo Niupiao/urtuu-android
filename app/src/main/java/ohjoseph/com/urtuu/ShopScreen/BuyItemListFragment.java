@@ -72,7 +72,6 @@ public class BuyItemListFragment extends Fragment {
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder {
-
         TextView nameTv;
 
         public ItemHolder(View v) {
@@ -82,7 +81,6 @@ public class BuyItemListFragment extends Fragment {
     }
 
     public class ItemListAdapter extends RecyclerView.Adapter<ItemHolder> {
-
         ArrayList<Item> items;
 
         public ItemListAdapter(ArrayList<Item> items) {
@@ -93,7 +91,6 @@ public class BuyItemListFragment extends Fragment {
         public ItemHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View holder = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.list_item_holder, viewGroup, false);
-
             return new ItemHolder(holder);
         }
 
