@@ -7,14 +7,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 import ohjoseph.com.urtuu.Data.Category;
 import ohjoseph.com.urtuu.Data.DataSource;
+import ohjoseph.com.urtuu.Data.Item;
 import ohjoseph.com.urtuu.Data.Subcategory;
 import ohjoseph.com.urtuu.R;
 
 public class ItemListActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
+    ArrayList<Item> mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

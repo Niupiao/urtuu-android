@@ -2,6 +2,7 @@ package ohjoseph.com.urtuu.ShopScreen;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -113,18 +114,23 @@ public class BuyItemListFragment extends Fragment {
                     @Override
                     public boolean onSingleTapConfirmed(MotionEvent e) {
                         // Open item page on single tap
-                        Toast.makeText(getActivity(), holder.nameTv.getText() + "Single Tap", Toast.LENGTH_SHORT).show();
+                        ItemViewPagerFragment viewPagerFrag = ItemViewPagerFragment.newInstance(i);
+
+                        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.fragment_container, viewPagerFrag)
+                                .addToBackStack(null).commit();
                         return true;
                     }
 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
-                        Toast.makeText(getActivity(), "Hearted!", Toast.LENGTH_SHORT).show();
                         // Set the liked button
                         if (i.isHeart()) {
+                            Toast.makeText(getActivity(), "Unliked", Toast.LENGTH_SHORT).show();
                             holder.heart.setImageResource(android.R.color.transparent);
                             i.setHeart(false);
                         } else {
+                            Toast.makeText(getActivity(), "Hearted!", Toast.LENGTH_SHORT).show();
                             holder.heart.setImageResource(R.drawable.heart_filled);
                             i.setHeart(true);
                         }

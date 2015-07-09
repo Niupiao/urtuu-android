@@ -51,8 +51,8 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/heart_grey"
                 android:scaleType="centerCrop"
-                android:layout_width="25dp"
-                android:layout_height="25dp" />
+                android:layout_width="22dp"
+                android:layout_height="22dp" />
 
         </RelativeLayout>
 
