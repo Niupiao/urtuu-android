@@ -5,9 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,10 +76,15 @@ public class BuyItemListFragment extends Fragment {
 
     public class ItemHolder extends RecyclerView.ViewHolder {
         TextView nameTv;
+        ImageView image;
+        ImageView heart;
+        boolean firstTouch = false;
 
         public ItemHolder(View v) {
             super(v);
             nameTv = (TextView) v.findViewById(R.id.item_name);
+            image = (ImageView) v.findViewById(R.id.item_picture);
+            heart = (ImageView) v.findViewById(R.id.heart_icon);
         }
     }
 
@@ -95,9 +103,48 @@ public class BuyItemListFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(ItemHolder holder, int position) {
-            Item i = items.get(position);
+        public void onBindViewHolder(final ItemHolder holder, int position) {
+            final Item i = items.get(position);
             holder.nameTv.setText(i.getName());
+            holder.image.setImageResource(i.getPictureId());
+            holder.image.setOnTouchListener(new View.OnTouchListener() {
+                // Listen for double taps
+                private GestureDetector detector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
+                    @Override
+                    public boolean onSingleTapConfirmed(MotionEvent e) {
+                        // Open item page on single tap
+                        Toast.makeText(getActivity(), holder.nameTv.getText() + "Single Tap", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onDoubleTap(MotionEvent e) {
+                        Toast.makeText(getActivity(), "Hearted!", Toast.LENGTH_SHORT).show();
+                        // Set the liked button
+                        if (i.isHeart()) {
+                            holder.heart.setImageResource(android.R.color.transparent);
+                            i.setHeart(false);
+                        } else {
+                            holder.heart.setImageResource(R.drawable.heart_filled);
+                            i.setHeart(true);
+                        }
+                        return true;
+                    }
+                });
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    detector.onTouchEvent(event);
+                    return true;
+                }
+            });
+
+            // Set the liked button
+            if (i.isHeart()) {
+                holder.heart.setImageResource(R.drawable.heart_filled);
+            } else {
+                holder.heart.setImageResource(android.R.color.transparent);
+            }
         }
 
         @Override

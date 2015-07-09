@@ -69,7 +69,7 @@ public class ItemListActivity extends AppCompatActivity {
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         // Closes the activity if end of back stack
-        if (count == 0) {
+        if (count <= 1 ) {
             finish();
         } else {
             getFragmentManager().popBackStack();

@@ -136,15 +136,15 @@ public class ShopFragment extends Fragment {
                         // Handle subcategory clicks
                         Subcategory s = (Subcategory) v.getTag();
 
-                        // Close the category
-                        ExpandAnimation expand = new ExpandAnimation(holder.subCatView, 100);
-                        v.startAnimation(expand);
-
                         // Open corresponding subcategory list
                         Intent i = new Intent(getActivity(), ItemListActivity.class);
                         i.putExtra(BuyItemListFragment.EXTRA_CATEGORY, c.getName());
                         i.putExtra(BuyItemListFragment.EXTRA_SUBCATEGORY, s.getName());
                         startActivity(i);
+
+                        // Close the category
+                        ExpandAnimation expand = new ExpandAnimation(holder.subCatView, 150);
+                        v.startAnimation(expand);
                     }
                 });
 

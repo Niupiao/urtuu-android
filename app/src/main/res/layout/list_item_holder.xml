@@ -5,36 +5,57 @@
                 android:layout_margin="4dp"
                 android:background="@android:color/white">
 
-    <View
+    <ImageView
         android:id="@+id/item_picture"
+        android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@android:color/holo_green_light" />
+        android:layout_height="200dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_below="@id/item_picture"
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/item_name"
+            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Test Item"/>
 
         <TextView
             android:id="@+id/item_price"
+            android:layout_below="@id/item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="13.99 USD"/>
 
-    </LinearLayout>
+        <RelativeLayout
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:gravity="center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/heart_icon"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/heart_grey"
+                android:scaleType="centerCrop"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

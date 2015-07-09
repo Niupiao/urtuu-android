@@ -21,6 +21,7 @@
     </android.support.v7.widget.Toolbar>
 
     <View
+        android:id="@+id/shadowView"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="top"
@@ -29,7 +30,7 @@
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  android:id="@+id/fragment_container"
-                 android:layout_below="@id/action_toolbar"
+                 android:layout_below="@id/shadowView"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"/>
 

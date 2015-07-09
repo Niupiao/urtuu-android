@@ -2,12 +2,16 @@ package ohjoseph.com.urtuu.Data;
 
 import java.util.ArrayList;
 
+import ohjoseph.com.urtuu.R;
+
 /**
  * Created by Joseph on 7/7/15.
  */
 public class Item {
 
     String mName;
+    boolean mHeart;
+    int mPictureId;
     float mPrice;
     double mSellerRating;
     String mSeller;
@@ -18,6 +22,16 @@ public class Item {
 
     public Item(String name) {
         mName = name;
+        mPictureId = R.drawable.small_s6;
+        mHeart = false;
+    }
+
+    public boolean isHeart() {
+        return mHeart;
+    }
+
+    public void setHeart(boolean heart) {
+        mHeart = heart;
     }
 
     public String getName() {
@@ -26,6 +40,14 @@ public class Item {
 
     public void setName(String name) {
         mName = name;
+    }
+
+    public int getPictureId() {
+        return mPictureId;
+    }
+
+    public void setPictureId(int pictureId) {
+        mPictureId = pictureId;
     }
 
     public float getPrice() {
