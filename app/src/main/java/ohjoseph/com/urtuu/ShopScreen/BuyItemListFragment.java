@@ -1,8 +1,10 @@
 package ohjoseph.com.urtuu.ShopScreen;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.Item;
@@ -35,6 +39,7 @@ public class BuyItemListFragment extends Fragment {
     ItemListAdapter mAdapter;
     RecyclerView mRecyclerView;
     GridLayoutManager glm;
+    TextView mSortButton;
     android.support.v7.app.ActionBar mToolbar;
 
     public static BuyItemListFragment newInstance(Subcategory s) {
@@ -58,6 +63,7 @@ public class BuyItemListFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_buy_item_list, container, false);
 
+        // Initialize RecyclerView and adapters
         mAdapter = new ItemListAdapter(mItems);
         glm = new GridLayoutManager(getActivity(), 2);
         glm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -66,7 +72,67 @@ public class BuyItemListFragment extends Fragment {
         mRecyclerView.setLayoutManager(glm);
         mRecyclerView.setHasFixedSize(true);
 
+        // Implement the sort button
+        mSortButton = (TextView) v.findViewById(R.id.sort_button);
+        mSortButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Sort the list via dialog interface
+                new AlertDialog.Builder(getActivity())
+                        .setTitle(R.string.sort_by)
+                        .setItems(R.array.sort_options, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Handle the sort
+                                sortItems(which);
+                                Toast.makeText(getActivity(), "Sort by " + which, Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Cancel the dialog
+                                dialog.cancel();
+                            }
+                        })
+                        .create().show();
+            }
+        });
+
         return v;
+    }
+
+    // Method to sort items TODO: Implement Sort
+    private void sortItems(int which) {
+        if (which == 0) { // Sort by Hot
+            Collections.sort(mItems, new Comparator<Item>() {
+                @Override
+                public int compare(Item one, Item two) {
+                    return 0;
+                }
+            });
+        } else if (which == 1) { // Sort by New
+            Collections.sort(mItems, new Comparator<Item>() {
+                @Override
+                public int compare(Item one, Item two) {
+                    return 0;
+                }
+            });
+        } else if (which == 2) { // Sort by Low Price
+            Collections.sort(mItems, new Comparator<Item>() {
+                @Override
+                public int compare(Item one, Item two) {
+                    return 0;
+                }
+            });
+        } else if (which == 3) { // Sort by High Price
+            Collections.sort(mItems, new Comparator<Item>() {
+                @Override
+                public int compare(Item one, Item two) {
+                    return 0;
+                }
+            });
+        }
     }
 
     // Holder class for RecyclerView Objects

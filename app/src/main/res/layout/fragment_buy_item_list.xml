@@ -12,18 +12,17 @@
         android:paddingBottom="5dp"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
-        android:paddingTop="42dp"
+        android:paddingTop="36dp"
         android:scrollbars="vertical"/>
 
 
     <LinearLayout
         android:id="@+id/search_toolbar"
         android:layout_alignParentTop="true"
-        android:background="#99FFFFFF"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:gravity="center_vertical"
+        android:background="#CDFFFFFF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -36,20 +35,30 @@
         <EditText
             android:id="@+id/search"
             android:layout_width="0dp"
-            android:layout_height="28dp"
+            android:layout_height="26dp"
             android:background="#80bcbcbc"
+            android:layout_weight="1"
             android:hint="@string/search"
             android:paddingLeft="6dp"
-            android:textSize="12sp"/>
+            android:textSize="10sp"/>
 
-        <Button
+        <View
+            android:layout_marginLeft="6dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#bcbcbc" />
+
+        <TextView
             android:id="@+id/sort_button"
             android:text="@string/sort"
-            android:textSize="12sp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
+            android:textSize="10sp"
+            android:background="@drawable/selector_sort"
+            android:gravity="center"
+            android:clickable="true"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:layout_width="60dp"
-            android:layout_height="20dp"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

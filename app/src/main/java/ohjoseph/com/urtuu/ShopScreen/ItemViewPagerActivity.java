@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,6 +23,10 @@ public class ItemViewPagerActivity extends AppCompatActivity {
     Toolbar mToolbar;
     ViewPager mViewPager;
     ArrayList<Item> mItems;
+    Item curItem;
+    TextView mPriceView;
+    TextView mShippingInfo;
+    TextView mBuyButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,12 +48,24 @@ public class ItemViewPagerActivity extends AppCompatActivity {
         mViewPager.setAdapter(new android.support.v4.app.FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return ItemFragment.newInstance(mItems.get(position));
+                curItem = mItems.get(position);
+                return ItemFragment.newInstance(curItem);
             }
 
             @Override
             public int getCount() {
                 return mItems.size();
+            }
+        });
+
+        mPriceView = (TextView) findViewById(R.id.item_price);
+        mShippingInfo = (TextView) findViewById(R.id.shipping_info);
+        mBuyButton = (TextView) findViewById(R.id.buy_button);
+        mBuyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Set to price of item
+                Toast.makeText(getApplicationContext(), "Bought!", Toast.LENGTH_SHORT).show();
             }
         });
     }

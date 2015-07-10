@@ -122,6 +122,7 @@ public class ShopFragment extends Fragment {
         public void onBindViewHolder(final CategoryHolder holder, int position) {
             Category c = categories.get(position);
             holder.titleText.setText(c.getName());
+            // Get the sublist array
             subs = makeSubs();
             // Calculates size of image to be displayed
             holder.pictureView.setImageResource(c.getPicture());

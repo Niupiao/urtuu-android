@@ -35,7 +35,7 @@ public class DataSource {
 
         // Add temp data
         for (int i = 0; i < 15; i++) {
-            Item item = new Item("Item " + i, "All", "All");
+            Item item = new Item("Samsung Galaxy S6 Edge", "All", "All");
             mItems.add(item);
         }
 
