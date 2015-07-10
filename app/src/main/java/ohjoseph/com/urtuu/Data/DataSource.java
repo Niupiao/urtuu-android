@@ -14,6 +14,7 @@ public class DataSource {
     public static DataSource sDataSource;
     private Context mContext;
     ArrayList<Category> mCategories;
+    ArrayList<Item> mItems;
 
     public static DataSource get(Context context) {
         if (sDataSource == null) {
@@ -25,29 +26,36 @@ public class DataSource {
 
     private DataSource(Context context) {
         mContext = context;
-        createMaps();
+        createItems();
     }
 
-    private void createMaps() {
-        mCategories = new ArrayList<>();
-        ArrayList<Subcategory> subs = new ArrayList<>();
-        for (int i=1; i<6; i++) {
-            Subcategory sc = new Subcategory("Category " + i);
-            subs.add(sc);
+    private void createItems() {
+        mItems = new ArrayList<>(15);
+        mCategories = new ArrayList<>(4);
+
+        // Add temp data
+        for (int i = 0; i < 15; i++) {
+            Item item = new Item("Item " + i, "All", "All");
+            mItems.add(item);
         }
 
-        mCategories.add(new Category("All", R.drawable.eyes, subs));
-        mCategories.add(new Category("Baby", R.drawable.baby, subs));
-        mCategories.add(new Category("Beauty", R.drawable.makeup, subs));
-        mCategories.add(new Category("Recommended", R.drawable.origins, subs));
+        // Add temp categories
+        mCategories.add(new Category("All", R.drawable.eyes));
+        mCategories.add(new Category("Beauty", R.drawable.makeup));
+        mCategories.add(new Category("Baby", R.drawable.baby));
+        mCategories.add(new Category("Recommended", R.drawable.origins));
     }
 
     public ArrayList getCategories() {
         return mCategories;
     }
 
-    public Category getCategory(String name) {
-        for (Category c : mCategories) {
+    public ArrayList<Item> getItems() {
+        return mItems;
+    }
+
+    public Item getItem(String name) {
+        for (Item c : mItems) {
             if (c.getName().equals(name)) {
                 return c;
             }

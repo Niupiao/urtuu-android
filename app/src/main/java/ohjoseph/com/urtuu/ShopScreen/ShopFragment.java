@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import ohjoseph.com.urtuu.Data.Category;
 import ohjoseph.com.urtuu.Data.DataSource;
-import ohjoseph.com.urtuu.Data.Subcategory;
+import ohjoseph.com.urtuu.Data.Item;
 import ohjoseph.com.urtuu.Main.CustomLayoutManager;
 import ohjoseph.com.urtuu.Main.ExpandAnimation;
 import ohjoseph.com.urtuu.R;
@@ -33,6 +33,7 @@ public class ShopFragment extends Fragment {
     private int mPage;
     ShopItemAdapter mShopItemAdapter;
     ArrayList<Category> mCategories;
+    ArrayList<Item> mItems;
     CustomLayoutManager clm;
     RecyclerView mRecyclerView;
 
@@ -49,6 +50,7 @@ public class ShopFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
+        mItems = DataSource.get(getActivity()).getItems();
         mCategories = DataSource.get(getActivity()).getCategories();
         mShopItemAdapter = new ShopItemAdapter(mCategories);
         // TODO: Implement Search
@@ -101,7 +103,7 @@ public class ShopFragment extends Fragment {
     public class ShopItemAdapter extends RecyclerView.Adapter<CategoryHolder> {
 
         ArrayList<Category> categories;
-        ArrayList<Subcategory> subs;
+        ArrayList<String> subs;
 
         public ShopItemAdapter(ArrayList<Category> categories) {
             this.categories = categories;
@@ -118,9 +120,9 @@ public class ShopFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(final CategoryHolder holder, int position) {
-            final Category c = categories.get(position);
+            Category c = categories.get(position);
             holder.titleText.setText(c.getName());
-            subs = c.getSubCategories();
+            subs = makeSubs();
             // Calculates size of image to be displayed
             holder.pictureView.setImageResource(c.getPicture());
 
@@ -134,12 +136,10 @@ public class ShopFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         // Handle subcategory clicks
-                        Subcategory s = (Subcategory) v.getTag();
+                        String sub = (String) v.getTag();
 
                         // Open corresponding subcategory list
                         Intent i = new Intent(getActivity(), ItemListActivity.class);
-                        i.putExtra(BuyItemListFragment.EXTRA_CATEGORY, c.getName());
-                        i.putExtra(BuyItemListFragment.EXTRA_SUBCATEGORY, s.getName());
                         startActivity(i);
 
                         // Close the category
@@ -149,7 +149,7 @@ public class ShopFragment extends Fragment {
                 });
 
                 TextView subName = (TextView) subcategory.findViewById(R.id.subcategory_item);
-                subName.setText(subs.get(x).getName());
+                subName.setText(subs.get(x));
                 holder.subCatView.addView(subcategory);
             }
         }
@@ -158,5 +158,14 @@ public class ShopFragment extends Fragment {
         public int getItemCount() {
             return categories.size();
         }
+    }
+
+    private ArrayList makeSubs() {
+        ArrayList<String> subs = new ArrayList<>();
+        for (int i = 1; i < 5; i++) {
+            subs.add("Subcategory " + i);
+        }
+
+        return subs;
     }
 }

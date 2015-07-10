@@ -9,10 +9,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-import ohjoseph.com.urtuu.Data.Category;
-import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.Item;
-import ohjoseph.com.urtuu.Data.Subcategory;
 import ohjoseph.com.urtuu.R;
 
 public class ItemListActivity extends AppCompatActivity {
@@ -30,17 +27,8 @@ public class ItemListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Get the bundle
-        Bundle args = getIntent().getExtras();
-        String sub = args.getString(BuyItemListFragment.EXTRA_SUBCATEGORY);
-        String cat = args.getString(BuyItemListFragment.EXTRA_CATEGORY);
-
-        // Get the subcategory
-        Category c = DataSource.get(this).getCategory(cat);
-        Subcategory s = c.getSubcategory(sub);
-
         // Create new Fragment
-        BuyItemListFragment frag = BuyItemListFragment.newInstance(s);
+        BuyItemListFragment frag = new BuyItemListFragment();
 
         // Add List Item fragment to container
         FragmentManager fm = getSupportFragmentManager();

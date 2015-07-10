@@ -10,6 +10,8 @@ import ohjoseph.com.urtuu.R;
 public class Item {
 
     String mName;
+    String mCategory;
+    String mSubcategory;
     boolean mHeart;
     int mPictureId;
     float mPrice;
@@ -20,8 +22,10 @@ public class Item {
     String mSize;
     ArrayList<String> mTags;
 
-    public Item(String name) {
+    public Item(String name, String subName, String catName) {
         mName = name;
+        mCategory = catName;
+        mSubcategory = subName;
         mPictureId = R.drawable.small_s6;
         mHeart = false;
     }
