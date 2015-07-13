@@ -1,6 +1,7 @@
 package ohjoseph.com.urtuu.ShopScreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,16 +13,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import ohjoseph.com.urtuu.Data.Category;
+import ohjoseph.com.urtuu.Data.DataSource;
+import ohjoseph.com.urtuu.Data.Item;
+import ohjoseph.com.urtuu.Main.CustomLayoutManager;
+import ohjoseph.com.urtuu.Main.ExpandAnimation;
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.Shared.Category;
-import ohjoseph.com.urtuu.Shared.CustomLayoutManager;
-import ohjoseph.com.urtuu.Shared.DataSource;
-import ohjoseph.com.urtuu.Shared.ExpandAnimation;
-import ohjoseph.com.urtuu.Shared.Subcategory;
 
 /**
  * Created by Joseph on 7/3/15.
@@ -33,6 +33,7 @@ public class ShopFragment extends Fragment {
     private int mPage;
     ShopItemAdapter mShopItemAdapter;
     ArrayList<Category> mCategories;
+    ArrayList<Item> mItems;
     CustomLayoutManager clm;
     RecyclerView mRecyclerView;
 
@@ -49,6 +50,7 @@ public class ShopFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
+        mItems = DataSource.get(getActivity()).getItems();
         mCategories = DataSource.get(getActivity()).getCategories();
         mShopItemAdapter = new ShopItemAdapter(mCategories);
         // TODO: Implement Search
@@ -64,21 +66,10 @@ public class ShopFragment extends Fragment {
         clm.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(clm);
         mRecyclerView.setAdapter(mShopItemAdapter);
+        mRecyclerView.setHasFixedSize(true);
 
         return view;
     }
-
-/*
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        // Scrolls the selected list item to the top
-        if (position == 0) {
-            l.smoothScrollToPositionFromTop(position, 40, 100);
-        } else {
-            l.smoothScrollToPositionFromTop(position, 0, 100);
-        }
-    }
-    */
 
     public class CategoryHolder extends RecyclerView.ViewHolder {
 
@@ -86,9 +77,11 @@ public class ShopFragment extends Fragment {
         protected ImageView pictureView;
         protected RelativeLayout card;
         LinearLayout subCatView;
+        View buttonView;
 
         public CategoryHolder(View itemView) {
             super(itemView);
+            buttonView = itemView;
             titleText = (TextView) itemView.findViewById(R.id.shop_item_name);
             pictureView = (ImageView) itemView.findViewById(R.id.shop_item_picture);
             card = (RelativeLayout) itemView;
@@ -110,14 +103,14 @@ public class ShopFragment extends Fragment {
     public class ShopItemAdapter extends RecyclerView.Adapter<CategoryHolder> {
 
         ArrayList<Category> categories;
-        ArrayList<Subcategory> subs;
+        ArrayList<String> subs;
 
         public ShopItemAdapter(ArrayList<Category> categories) {
             this.categories = categories;
         }
 
         @Override
-        public CategoryHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        public CategoryHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.list_item_shop, viewGroup, false);
@@ -126,10 +119,11 @@ public class ShopFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(CategoryHolder holder, int i) {
-            Category c = categories.get(i);
+        public void onBindViewHolder(final CategoryHolder holder, int position) {
+            Category c = categories.get(position);
             holder.titleText.setText(c.getName());
-            subs = c.getSubCategories();
+            // Get the sublist array
+            subs = makeSubs();
             // Calculates size of image to be displayed
             holder.pictureView.setImageResource(c.getPicture());
 
@@ -138,17 +132,25 @@ public class ShopFragment extends Fragment {
 
             for (int x = 0; x < subs.size(); x++) {
                 View subcategory = inflater.inflate(R.layout.list_item_subcategory, holder.subCatView, false);
+                subcategory.setTag(subs.get(x));
                 subcategory.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity(),
-                                ((TextView) v.findViewById(R.id.subcategory_item)).getText() + "clicked",
-                                Toast.LENGTH_SHORT).show();
+                        // Handle subcategory clicks
+                        String sub = (String) v.getTag();
+
+                        // Open corresponding subcategory list
+                        Intent i = new Intent(getActivity(), ItemListActivity.class);
+                        startActivity(i);
+
+                        // Close the category
+                        ExpandAnimation expand = new ExpandAnimation(holder.subCatView, 150);
+                        v.startAnimation(expand);
                     }
                 });
 
                 TextView subName = (TextView) subcategory.findViewById(R.id.subcategory_item);
-                subName.setText(subs.get(x).getName());
+                subName.setText(subs.get(x));
                 holder.subCatView.addView(subcategory);
             }
         }
@@ -157,5 +159,14 @@ public class ShopFragment extends Fragment {
         public int getItemCount() {
             return categories.size();
         }
+    }
+
+    private ArrayList makeSubs() {
+        ArrayList<String> subs = new ArrayList<>();
+        for (int i = 1; i < 5; i++) {
+            subs.add("Subcategory " + i);
+        }
+
+        return subs;
     }
 }

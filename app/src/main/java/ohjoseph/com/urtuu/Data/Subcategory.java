@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Shared;
+package ohjoseph.com.urtuu.Data;
 
 import java.util.ArrayList;
 
@@ -8,10 +8,17 @@ import java.util.ArrayList;
 public class Subcategory {
 
     String mName;
+    String mCategory;
     ArrayList<Item> mItems;
 
-    public Subcategory(String name) {
+    public Subcategory(String name, String catName) {
         mName = name;
+        mCategory = catName;
+        mItems = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Item item = new Item("Item " + i, mName, mCategory);
+            mItems.add(item);
+        }
     }
 
     public ArrayList<Item> getItems() {

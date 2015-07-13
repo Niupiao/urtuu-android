@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Shared;
+package ohjoseph.com.urtuu.Main;
 
 import android.view.View;
 import android.view.animation.Animation;
