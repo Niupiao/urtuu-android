@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">URTU</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="cart">My Cart</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by">Sort by...</string>
+    <array name="sort_options">
+        <item>Hot</item>
+        <item>New</item>
+        <item>Price: Low to High</item>
+        <item>Price: High to Low</item>
+    </array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_item_list">ItemListActivity</string>
+    <string name="title_activity_cart">CartActivity</string>
+</resources>
