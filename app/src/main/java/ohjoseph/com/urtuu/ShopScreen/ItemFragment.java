@@ -34,6 +34,7 @@ public class ItemFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Get arguments and get item
         Bundle args = getArguments();
         mItem = DataSource.get(getActivity()).getItem(args.getString(EXTRA_NAME));
 
