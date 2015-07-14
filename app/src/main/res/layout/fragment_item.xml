@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <ScrollView
         android:layout_alignParentTop="true"
@@ -17,12 +18,32 @@
             android:background="@android:color/white"
             android:orientation="vertical">
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/item_viewpager"
+            <RelativeLayout
                 android:layout_below="@+id/toolbar_shadow"
                 android:layout_above="@+id/buy_bar"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"/>
+                android:layout_height="300dp">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/item_viewpager"
+                    android:layout_alignParentTop="true"
+                    android:layout_above="@+id/pager_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/pager_indicator"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:radius="4dp"
+                    app:fillColor="#99bcbcbc"
+                    app:pageColor="@android:color/transparent"
+                    app:strokeColor="#99bcbcbc"
+                    app:strokeWidth="1dp"/>
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"

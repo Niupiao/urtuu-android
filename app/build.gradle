@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:design:22.2.0'
     compile 'com.pkmmte.view:circularimageview:1.1'
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
 }

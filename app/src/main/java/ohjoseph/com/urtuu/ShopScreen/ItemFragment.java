@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.viewpagerindicator.CirclePageIndicator;
+
 import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.Item;
 import ohjoseph.com.urtuu.R;
@@ -57,6 +59,10 @@ public class ItemFragment extends Fragment {
         mAdapter = new ImagePagerAdapter(getActivity(), mItem);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(3);
+
+        // Initialize the pager indicator
+        CirclePageIndicator indicator = (CirclePageIndicator) v.findViewById(R.id.pager_indicator);
+        indicator.setViewPager(mViewPager);
 
         return v;
     }
