@@ -148,6 +148,7 @@ public class BuyItemListFragment extends Fragment {
             heart = (ImageView) v.findViewById(R.id.heart_icon);
         }
     }
+
     // Adapter for the RecyclerView
     public class ItemListAdapter extends RecyclerView.Adapter<ItemHolder> {
         ArrayList<Item> items;

@@ -13,8 +13,8 @@ public class Item {
     String mCategory;
     String mSubcategory;
     boolean mHeart;
-    int mPictureId;
-    float mPrice;
+    ArrayList<Integer> mImages = new ArrayList<>(5);
+    double mPrice;
     double mSellerRating;
     String mSeller;
     int mPaymentMethod;
@@ -26,8 +26,10 @@ public class Item {
         mName = name;
         mCategory = catName;
         mSubcategory = subName;
-        mPictureId = R.drawable.small_s6;
+        mPrice = 299.99;
         mHeart = false;
+        mImages.add(R.drawable.small_s6);
+        mImages.add(R.drawable.s6_2);
     }
 
     public boolean isHeart() {
@@ -47,18 +49,14 @@ public class Item {
     }
 
     public int getPictureId() {
-        return mPictureId;
+        return mImages.get(0);
     }
 
-    public void setPictureId(int pictureId) {
-        mPictureId = pictureId;
-    }
-
-    public float getPrice() {
+    public double getPrice() {
         return mPrice;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         mPrice = price;
     }
 
@@ -108,5 +106,13 @@ public class Item {
 
     public void setTags(ArrayList<String> tags) {
         mTags = tags;
+    }
+
+    public ArrayList<Integer> getImages() {
+        return mImages;
+    }
+
+    public void setImages(ArrayList<Integer> images) {
+        mImages = images;
     }
 }

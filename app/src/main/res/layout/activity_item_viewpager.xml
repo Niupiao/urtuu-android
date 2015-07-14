@@ -32,14 +32,12 @@
         android:layout_gravity="top"
         android:background="#DDbcbcbc"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/item_viewpager"
+    <FrameLayout
+        android:id="@+id/item_container"
         android:layout_below="@+id/toolbar_shadow"
         android:layout_above="@+id/buy_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"/>
 
     <LinearLayout
         android:id="@+id/buy_bar"
@@ -55,7 +53,7 @@
             android:background="#6f5448"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2">
+            android:layout_weight="1.5">
 
             <TextView
                 android:id="@+id/item_price"
@@ -82,7 +80,7 @@
         <TextView
             android:id="@+id/buy_button"
             android:gravity="center"
-            android:text="BUY"
+            android:text="Add to Cart"
             android:textSize="22sp"
             android:textColor="@android:color/white"
             android:background="@drawable/selector_buy"

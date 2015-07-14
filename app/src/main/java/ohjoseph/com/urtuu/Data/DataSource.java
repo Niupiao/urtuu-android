@@ -15,6 +15,7 @@ public class DataSource {
     private Context mContext;
     ArrayList<Category> mCategories;
     ArrayList<Item> mItems;
+    ArrayList<Item> mCart;
 
     public static DataSource get(Context context) {
         if (sDataSource == null) {
@@ -31,12 +32,18 @@ public class DataSource {
 
     private void createItems() {
         mItems = new ArrayList<>(15);
+        mCart = new ArrayList<>(1);
         mCategories = new ArrayList<>(4);
 
         // Add temp data
         for (int i = 0; i < 15; i++) {
             Item item = new Item("Samsung Galaxy S6 Edge", "All", "All");
             mItems.add(item);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Item item = new Item("Samsung Galaxy S6 Edge", "All", "All");
+            mCart.add(item);
         }
 
         // Add temp categories
@@ -52,6 +59,14 @@ public class DataSource {
 
     public ArrayList<Item> getItems() {
         return mItems;
+    }
+
+    public ArrayList<Item> getCart() {
+        return mCart;
+    }
+
+    public void addToCart(Item i) {
+        mCart.add(i);
     }
 
     public Item getItem(String name) {

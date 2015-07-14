@@ -27,6 +27,7 @@
             android:layout_height="42dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/selector_cancel"
+            android:clickable="true"
             android:padding="6dp"
             android:scaleType="fitXY"
             android:src="@drawable/x_icon"/>
@@ -51,17 +52,17 @@
         android:id="@+id/checkout_bar"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="112dp">
+        android:layout_height="97dp">
 
         <RelativeLayout
             android:layout_alignParentTop="true"
             android:background="@color/light_blue"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="35dp">
 
             <TextView
                 android:id="@+id/number_items"
-                android:text="3 Items"
+                android:text="1 Item"
                 android:textColor="#DD000000"
                 android:textSize="16sp"
                 android:gravity="center"
@@ -85,42 +86,81 @@
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
+            android:background="#FFFFFF"
             android:layout_width="match_parent"
-            android:layout_height="72dp">
+            android:layout_height="60dp">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
 
-                <ImageView
-                    android:id="@+id/button_1"
-                    android:background="#bcbcbc"
+                <RelativeLayout
+                    android:background="#FF9800"
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
+                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/pay_with"
+                        android:text="Pay with"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/black"
+                        android:layout_marginRight="4dp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+
+                    <ImageView
+                        android:id="@+id/button_1"
+                        android:layout_toRightOf="@id/pay_with"
+                        android:src="@drawable/paypal"
+                        android:scaleType="centerCrop"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
 
-                <ImageView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:background="#FF9800"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <TextView
                     android:id="@+id/button_2"
-                    android:background="#bcbcbc"
+                    android:layout_margin="1dp"
+                    android:text="CHECKOUT"
+                    android:textColor="#FF9800"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:background="@drawable/selector_checkout"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 

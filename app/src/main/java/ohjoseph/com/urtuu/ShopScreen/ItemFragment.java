@@ -2,6 +2,7 @@ package ohjoseph.com.urtuu.ShopScreen;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ public class ItemFragment extends Fragment {
 
     Item mItem;
     Toolbar mToolbar;
+    ViewPager mViewPager;
+    ImagePagerAdapter mAdapter;
 
     public static ItemFragment newInstance(Item i) {
         ItemFragment frag = new ItemFragment();
@@ -49,6 +52,11 @@ public class ItemFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_item, container, false);
 
+        // Instantiate the view pager
+        mViewPager = (ViewPager) v.findViewById(R.id.item_viewpager);
+        mAdapter = new ImagePagerAdapter(getActivity(), mItem);
+        mViewPager.setAdapter(mAdapter);
+        mViewPager.setOffscreenPageLimit(3);
 
         return v;
     }

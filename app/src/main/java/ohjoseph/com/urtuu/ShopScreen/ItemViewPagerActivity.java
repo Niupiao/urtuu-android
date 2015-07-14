@@ -1,15 +1,12 @@
 package ohjoseph.com.urtuu.ShopScreen;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.Item;
@@ -21,8 +18,6 @@ import ohjoseph.com.urtuu.R;
 public class ItemViewPagerActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
-    ViewPager mViewPager;
-    ArrayList<Item> mItems;
     Item curItem;
     TextView mPriceView;
     TextView mShippingInfo;
@@ -33,8 +28,15 @@ public class ItemViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_viewpager);
 
+        // Get the Item extras
         Bundle extras = getIntent().getExtras();
         String itemName = extras.getString(ItemFragment.EXTRA_NAME);
+        curItem = DataSource.get(this).getItem(itemName);
+
+        // Inflate the ItemFragment
+        ItemFragment frag = ItemFragment.newInstance(curItem);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.item_container, frag).commit();
 
         // Initialize and set up the toolbar
         mToolbar = (Toolbar) findViewById(R.id.action_toolbar);
@@ -42,30 +44,34 @@ public class ItemViewPagerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Initialize and set up the view pager
-        mItems = DataSource.get(getApplicationContext()).getItems();
-        mViewPager = (ViewPager) findViewById(R.id.item_viewpager);
-        mViewPager.setAdapter(new android.support.v4.app.FragmentStatePagerAdapter(getSupportFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                curItem = mItems.get(position);
-                return ItemFragment.newInstance(curItem);
-            }
-
-            @Override
-            public int getCount() {
-                return mItems.size();
-            }
-        });
-
+        // Initialize the Buy toolbar
         mPriceView = (TextView) findViewById(R.id.item_price);
         mShippingInfo = (TextView) findViewById(R.id.shipping_info);
         mBuyButton = (TextView) findViewById(R.id.buy_button);
         mBuyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Set to price of item
-                Toast.makeText(getApplicationContext(), "Bought!", Toast.LENGTH_SHORT).show();
+                // Open bought dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(ItemViewPagerActivity.this);
+                builder.setTitle(R.string.add_cart)
+                        .setMessage(curItem.getName() + " has been added to your cart.")
+                        .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Close the dialog window and close the activity
+                                dialog.dismiss();
+                                ItemViewPagerActivity.this.finish();
+                            }
+                        })
+                        .setPositiveButton(R.string.show_cart, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Dismiss dialog and open cart
+                                dialog.dismiss();
+                                CartFragment cartFrag = new CartFragment();
+                                cartFrag.show(getSupportFragmentManager(), "My Cart");
+                            }
+                        }).create().show();
             }
         });
     }

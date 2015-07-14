@@ -4,6 +4,10 @@
     <string name="action_settings">Settings</string>
     <string name="search">Search</string>
     <string name="cart">My Cart</string>
+    <string name="bought">Purchased!</string>
+    <string name="add_cart">Added to Cart!</string>
+    <string name="ok">OK</string>
+    <string name="show_cart">Open Cart</string>
     <string name="sort">Sort</string>
     <string name="sort_by">Sort by...</string>
     <array name="sort_options">
