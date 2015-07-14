@@ -58,7 +58,7 @@ public class ItemFragment extends Fragment {
         mViewPager = (ViewPager) v.findViewById(R.id.item_viewpager);
         mAdapter = new ImagePagerAdapter(getActivity(), mItem);
         mViewPager.setAdapter(mAdapter);
-        mViewPager.setOffscreenPageLimit(3);
+        //mViewPager.setOffscreenPageLimit(1);
 
         // Initialize the pager indicator
         CirclePageIndicator indicator = (CirclePageIndicator) v.findViewById(R.id.pager_indicator);

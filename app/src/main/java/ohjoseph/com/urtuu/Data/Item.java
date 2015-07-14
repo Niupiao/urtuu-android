@@ -28,6 +28,7 @@ public class Item {
         mSubcategory = subName;
         mPrice = 299.99;
         mHeart = false;
+        mImages.add(R.drawable.s6_3);
         mImages.add(R.drawable.small_s6);
         mImages.add(R.drawable.s6_2);
     }
