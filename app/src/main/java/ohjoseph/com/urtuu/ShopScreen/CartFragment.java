@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -58,6 +59,26 @@ public class CartFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 // Close dialog
+                getDialog().dismiss();
+            }
+        });
+
+        // Set Paypal buttons
+        RelativeLayout paypalButton = (RelativeLayout) v.findViewById(R.id.paypal_button);
+        paypalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open paypal
+                getDialog().dismiss();
+            }
+        });
+
+        // Set Normal Checkout Button
+        TextView checkoutButton = (TextView) v.findViewById(R.id.checkout_button);
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open payments menu
                 getDialog().dismiss();
             }
         });

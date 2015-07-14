@@ -26,7 +26,7 @@ public class Item {
         mName = name;
         mCategory = catName;
         mSubcategory = subName;
-        mPrice = 299.99;
+        mPrice = 249.99;
         mHeart = false;
         mImages.add(R.drawable.s6_3);
         mImages.add(R.drawable.small_s6);

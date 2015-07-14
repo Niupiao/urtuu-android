@@ -45,6 +45,8 @@
         android:id="@+id/cart_items_list"
         android:layout_below="@id/divider"
         android:layout_above="@+id/checkout_bar"
+        android:divider="#bcbcbc"
+        android:dividerHeight="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -100,12 +102,14 @@
                 android:paddingRight="20dp">
 
                 <RelativeLayout
-                    android:background="#FF9800"
+                    android:id="@+id/paypal_button"
+                    android:background="@drawable/selector_paypal"
                     android:paddingRight="8dp"
                     android:paddingLeft="8dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:clickable="true">
 
                     <TextView
                         android:id="@+id/pay_with"
@@ -149,7 +153,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/button_2"
+                    android:id="@+id/checkout_button"
                     android:layout_margin="1dp"
                     android:text="CHECKOUT"
                     android:textColor="#FF9800"

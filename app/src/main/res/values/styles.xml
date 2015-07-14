@@ -7,4 +7,8 @@
         <item name="android:windowActionBar">false</item>
     </style>
 
+    <style name="noAnimTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
 </resources>

@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,9 +46,13 @@ public class ItemViewPagerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Initialize the Buy toolbar
+        // Initialize the price
         mPriceView = (TextView) findViewById(R.id.item_price);
+        mPriceView.setText("$" + curItem.getPrice());
+
         mShippingInfo = (TextView) findViewById(R.id.shipping_info);
+
+        // Set the buy button
         mBuyButton = (TextView) findViewById(R.id.buy_button);
         mBuyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +80,24 @@ public class ItemViewPagerActivity extends AppCompatActivity {
                         }).create().show();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_item_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.cart) { // Show the cart
+            CartFragment cartFrag = new CartFragment();
+            cartFrag.show(getSupportFragmentManager(), "My Cart");
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

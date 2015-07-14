@@ -30,7 +30,8 @@
         <activity
             android:name=".ShopScreen.ItemListActivity"
             android:label="@string/title_activity_item_list"
-            android:parentActivityName=".Main.MainActivity" >
+            android:parentActivityName=".Main.MainActivity"
+            android:theme="@style/noAnimTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ohjoseph.com.urtuu.Main.MainActivity" />

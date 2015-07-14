@@ -22,10 +22,11 @@
                 android:layout_below="@+id/toolbar_shadow"
                 android:layout_above="@+id/buy_bar"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="350dp">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/item_viewpager"
+                    android:background="#bcbcbc"
                     android:layout_alignParentTop="true"
                     android:layout_above="@+id/pager_indicator"
                     android:layout_width="match_parent"
