@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.ShopScreen;
+package ohjoseph.com.urtuu.Shop;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;

@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.ShopScreen.CartFragment;
+import ohjoseph.com.urtuu.Shop.CartFragment;
 
 
 public class MainActivity extends AppCompatActivity {

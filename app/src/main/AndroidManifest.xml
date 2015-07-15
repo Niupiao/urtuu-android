@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ShopScreen.ItemListActivity"
+            android:name=".Shop.ItemListActivity"
             android:label="@string/title_activity_item_list"
             android:parentActivityName=".Main.MainActivity"
             android:theme="@style/noAnimTheme">
@@ -37,8 +37,8 @@
                 android:value="ohjoseph.com.urtuu.Main.MainActivity" />
         </activity>
         <activity
-            android:name=".ShopScreen.ItemViewPagerActivity"
-            android:parentActivityName=".ShopScreen.ItemListActivity" />
+            android:name=".Shop.ItemViewPagerActivity"
+            android:parentActivityName=".Shop.ItemListActivity" />
     </application>
 
 </manifest>

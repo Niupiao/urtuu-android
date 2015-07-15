@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.ShopScreen;
+package ohjoseph.com.urtuu.Shop;
 
 import android.content.Context;
 import android.content.Intent;
