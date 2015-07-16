@@ -26,7 +26,7 @@
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/selector_cancel"
+            android:background="@drawable/selector_transparent_grey"
             android:clickable="true"
             android:padding="6dp"
             android:scaleType="fitXY"
@@ -159,7 +159,7 @@
                     android:textColor="#FF9800"
                     android:textSize="14sp"
                     android:gravity="center"
-                    android:background="@drawable/selector_checkout"
+                    android:background="@drawable/selector_white_grey"
                     android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>

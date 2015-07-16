@@ -52,7 +52,7 @@
             android:id="@+id/sort_button"
             android:text="@string/sort"
             android:textSize="13sp"
-            android:background="@drawable/selector_sort"
+            android:background="@drawable/selector_transparent_white_grey"
             android:gravity="center"
             android:clickable="true"
             android:paddingLeft="15dp"

@@ -25,11 +25,19 @@
                     android:gravity="center"
                     android:layout_weight="1">
 
-                    <ImageButton
-                        android:background="#FFFFFF"
-                        android:src="@drawable/circle_plus_outline"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"/>
+                    <LinearLayout
+                        android:background="@color/grey"
+                        android:padding="1dp"
+                        android:layout_width="77dp"
+                        android:layout_height="77dp">
+
+                        <ImageButton
+                            android:background="@drawable/selector_white_grey"
+                            android:src="@drawable/circle_plus_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -39,12 +47,41 @@
                     android:gravity="center"
                     android:layout_weight="1">
 
-                    <ImageButton
-                        android:background="#FFFFFF"
-                        android:src="@drawable/circle_plus_outline"
-                        android:scaleType="center"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"/>
+                    <LinearLayout
+                        android:background="@color/grey"
+                        android:padding="1dp"
+                        android:layout_width="77dp"
+                        android:layout_height="77dp">
+
+                        <ImageButton
+                            android:background="@drawable/selector_white_grey"
+                            android:src="@drawable/circle_plus_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1">
+                    
+                    <LinearLayout
+                        android:background="@color/grey"
+                        android:padding="1dp"
+                        android:layout_width="77dp"
+                        android:layout_height="77dp">
+
+                        <ImageButton
+                            android:background="@drawable/selector_white_grey"
+                            android:src="@drawable/circle_plus_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -54,25 +91,19 @@
                     android:gravity="center"
                     android:layout_weight="1">
 
-                    <ImageButton
-                        android:background="#FFFFFF"
-                        android:src="@drawable/circle_plus_outline"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"/>
+                    <LinearLayout
+                        android:background="@color/grey"
+                        android:padding="1dp"
+                        android:layout_width="77dp"
+                        android:layout_height="77dp">
 
-                </LinearLayout>
+                        <ImageButton
+                            android:background="@drawable/selector_white_grey"
+                            android:src="@drawable/circle_plus_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:layout_weight="1">
-
-                    <ImageButton
-                        android:background="#FFFFFF"
-                        android:src="@drawable/circle_plus_outline"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -137,7 +168,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -175,7 +207,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -213,7 +246,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -251,7 +285,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -310,7 +345,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -348,7 +384,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -386,7 +423,8 @@
                     android:background="@color/grey"/>
 
                 <RelativeLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:paddingLeft="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
@@ -491,7 +529,7 @@
 
                     <TextView
                         android:id="@+id/commission"
-                        android:layout_toLeftOf="@+id/r3"
+                        android:layout_alignParentRight="true"
                         android:text="Free"
                         android:textColor="@color/grey"
                         android:textSize="12sp"
@@ -500,12 +538,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"/>
 
-                    <ImageView
-                        android:id="@+id/r3"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/right_arrow"
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"/>
                 </RelativeLayout>
 
                 <View
@@ -529,7 +561,7 @@
 
                     <TextView
                         android:id="@+id/total_profit"
-                        android:layout_toLeftOf="@+id/r1"
+                        android:layout_alignParentRight="true"
                         android:text="@string/required"
                         android:textColor="@color/grey"
                         android:textSize="12sp"
@@ -538,12 +570,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"/>
 
-                    <ImageView
-                        android:id="@+id/r1"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/right_arrow"
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"/>
                 </RelativeLayout>
 
                 <View
@@ -555,21 +581,31 @@
 
             <LinearLayout
                 android:padding="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:background="@color/colorPrimary"
-                    android:text="LIST"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"
-                    android:textSize="18sp"
-                    android:gravity="center"
-                    android:padding="5dp"
+                <LinearLayout
+                    android:padding="1dp"
+                    android:background="@color/grey"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/list_button"
+                        android:clickable="true"
+                        android:background="@drawable/selector_blue"
+                        android:text="LIST"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

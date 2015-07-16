@@ -86,6 +86,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
+                android:background="@drawable/selector_white_grey"
+                android:clickable="true"
                 android:gravity="center_vertical"
                 android:padding="10dp">
 
@@ -357,7 +359,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:background="@android:color/white"
+                    android:background="@drawable/selector_white_grey"
+                    android:clickable="true"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:gravity="center"
