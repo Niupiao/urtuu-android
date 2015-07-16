@@ -26,13 +26,29 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Get ViewPager and set its PagerAdapter to handle Fragments
+        /*/ Get ViewPager and set its PagerAdapter to handle Fragments
         mViewPager = (ViewPager) findViewById(R.id.viewPager_main_tabs);
         mViewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), this));
-
+*/
         // Connect TabLayout with the Viewpager
         TabLayout tabs = (TabLayout) findViewById(R.id.bottom_tabs);
-        tabs.setupWithViewPager(mViewPager);
+        tabs.setTabsFromPagerAdapter(new FragmentAdapter(getSupportFragmentManager(), this));
+        tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override

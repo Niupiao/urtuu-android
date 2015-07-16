@@ -17,7 +17,7 @@ import ohjoseph.com.urtuu.R;
 /**
  * Created by Joseph on 7/7/15.
  */
-public class ItemViewPagerActivity extends AppCompatActivity {
+public class ItemActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     Item curItem;
@@ -58,15 +58,14 @@ public class ItemViewPagerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open bought dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(ItemViewPagerActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ItemActivity.this);
                 builder.setTitle(R.string.add_cart)
                         .setMessage(curItem.getName() + " has been added to your cart.")
                         .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // Close the dialog window and close the activity
+                                // Close the dialog window
                                 dialog.dismiss();
-                                ItemViewPagerActivity.this.finish();
                             }
                         })
                         .setPositiveButton(R.string.show_cart, new DialogInterface.OnClickListener() {

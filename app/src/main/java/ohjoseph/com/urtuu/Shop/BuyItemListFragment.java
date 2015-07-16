@@ -188,7 +188,7 @@ public class BuyItemListFragment extends Fragment {
                     @Override
                     public boolean onSingleTapConfirmed(MotionEvent e) {
                         // Open item page on single tap
-                        Intent intent = new Intent(getActivity(), ItemViewPagerActivity.class);
+                        Intent intent = new Intent(getActivity(), ItemActivity.class);
                         intent.putExtra(ItemFragment.EXTRA_NAME, i.getName());
                         startActivity(intent);
                         return true;

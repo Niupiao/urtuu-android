@@ -37,7 +37,7 @@
                 android:value="ohjoseph.com.urtuu.Main.MainActivity" />
         </activity>
         <activity
-            android:name=".Shop.ItemViewPagerActivity"
+            android:name=".Shop.ItemActivity"
             android:parentActivityName=".Shop.ItemListActivity" />
     </application>
 
