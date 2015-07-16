@@ -52,9 +52,12 @@
         android:id="@+id/bottom_tabs"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:elevation="1dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         app:tabGravity="fill"
-        app:tabMode="fixed"/>
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/dark_blue"
+        app:tabBackground="@android:color/white"/>
 
 </android.support.design.widget.CoordinatorLayout>

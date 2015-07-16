@@ -30,7 +30,7 @@ public class SellFragment extends Fragment {
         mTabHost = new FragmentTabHost(getActivity());
         // Locate fragment1.xml to create FragmentTabHost
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.layout.fragment_sell);
-        mTabHost.addTab(mTabHost.newTabSpec("groups").setIndicator("Tab 1"), NewItemFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("New Item").setIndicator("Tab 1"), NewItemFragment.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("contacts").setIndicator("Tab 2"), ItemListingsFragment.class, null);
 
         return mTabHost;
