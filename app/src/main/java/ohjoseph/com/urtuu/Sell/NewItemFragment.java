@@ -49,7 +49,8 @@ public class NewItemFragment extends Fragment {
         RelativeLayout shipsFrom = (RelativeLayout) v.findViewById(R.id.ships_from_button);
         RelativeLayout shipsWithin = (RelativeLayout) v.findViewById(R.id.ships_within_button);
 
-        EditText feeTV = (EditText) v.findViewById(R.id.shipping_fee);
+        EditText salePrice = (EditText) v.findViewById(R.id.pricing);
+        TextView feeTV = (TextView) v.findViewById(R.id.shipping_fee);
         TextView shipFromTV = (TextView) v.findViewById(R.id.ships_from);
         TextView shipWithinTV = (TextView) v.findViewById(R.id.ships_within);
 
