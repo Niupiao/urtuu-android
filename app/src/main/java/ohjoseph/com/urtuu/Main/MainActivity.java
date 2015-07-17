@@ -2,7 +2,6 @@ package ohjoseph.com.urtuu.Main;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -14,7 +13,7 @@ import ohjoseph.com.urtuu.Shop.CartFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager mViewPager;
+    TabListener mTabListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,29 +25,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        /*/ Get ViewPager and set its PagerAdapter to handle Fragments
-        mViewPager = (ViewPager) findViewById(R.id.viewPager_main_tabs);
-        mViewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), this));
-*/
-        // Connect TabLayout with the Viewpager
+        // Initialize the tab listener
+        mTabListener = new TabListener(getSupportFragmentManager());
+
+        // Initialize the TabLayout
         TabLayout tabs = (TabLayout) findViewById(R.id.bottom_tabs);
         tabs.setTabsFromPagerAdapter(new FragmentAdapter(getSupportFragmentManager(), this));
-        tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
 
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+        // Set up the tab listener
+        tabs.setOnTabSelectedListener(mTabListener);
     }
 
     @Override
@@ -76,5 +61,4 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().popBackStack();
         return true;
     }
-
 }

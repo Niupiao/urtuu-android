@@ -49,11 +49,10 @@ public class ShopFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
+        // mPage = getArguments().getInt(ARG_PAGE);
         mItems = DataSource.get(getActivity()).getItems();
         mCategories = DataSource.get(getActivity()).getCategories();
         mShopItemAdapter = new ShopItemAdapter(mCategories);
-        // TODO: Implement Search
     }
 
     @Override

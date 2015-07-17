@@ -24,8 +24,8 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ohjoseph.com.urtuu.Main.NonSwipeableViewPager
-        android:id="@+id/viewPager_main_tabs"
+    <FrameLayout
+        android:id="@+id/fragment_container_tab"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"

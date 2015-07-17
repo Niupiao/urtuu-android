@@ -16,7 +16,7 @@ import ohjoseph.com.urtuu.Tabs.ExploreFragment;
 public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter {
 
     final int PAGE_COUNT = 5;
-    final String[] Titles = {"Look", "Shop", "Spark", "Sell", "Me"};
+    final String[] Titles = {"Shop", "Sell", "Spark", "Look", "Me"};
     private Context mContext;
 
     public FragmentAdapter(FragmentManager fm, Context context) {
@@ -32,15 +32,15 @@ public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return BrowseFragment.newInstance(position + 1);
+            return new ShopFragment();
         } else if (position == 1) {
-            return ShopFragment.newInstance(position + 1);
-        } else if (position == 2) {
-            return ExploreFragment.newInstance(position + 1);
-        } else if (position == 3) {
             return new SellViewPagerFragment();
+        } else if (position == 2) {
+            return new BrowseFragment();
+        } else if (position == 3) {
+            return new ExploreFragment();
         } else {
-            return AccountFragment.newInstance(position + 1);
+            return new AccountFragment();
         }
     }
 
