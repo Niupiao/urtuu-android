@@ -3,7 +3,7 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".HomeActivity">
     <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
+          android:title="@string/cart_icon"
           android:orderInCategory="100"
           app:showAsAction="never"/>
 </menu>

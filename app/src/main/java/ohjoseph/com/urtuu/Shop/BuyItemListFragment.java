@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -139,13 +140,13 @@ public class BuyItemListFragment extends Fragment {
     public class ItemHolder extends RecyclerView.ViewHolder {
         TextView nameTv;
         ImageView image;
-        ImageView heart;
+        ImageButton heart;
 
         public ItemHolder(View v) {
             super(v);
             nameTv = (TextView) v.findViewById(R.id.item_name);
             image = (ImageView) v.findViewById(R.id.item_picture);
-            heart = (ImageView) v.findViewById(R.id.heart_icon);
+            heart = (ImageButton) v.findViewById(R.id.heart_icon);
         }
     }
 

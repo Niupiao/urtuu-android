@@ -8,6 +8,7 @@
         android:id="@+id/item_list_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:clipToPadding="false"
         android:paddingBottom="5dp"
         android:paddingLeft="2dp"
@@ -61,5 +62,11 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_below="@id/search_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#50bcbcbc" />
 
 </RelativeLayout>

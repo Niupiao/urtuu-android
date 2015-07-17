@@ -57,7 +57,7 @@
         android:layout_gravity="bottom"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/dark_blue"
+        app:tabSelectedTextColor="@android:color/black"
         app:tabBackground="@android:color/white"/>
 
 </android.support.design.widget.CoordinatorLayout>
