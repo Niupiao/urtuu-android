@@ -13,23 +13,9 @@ import ohjoseph.com.urtuu.R;
  */
 public class AccountFragment extends Fragment {
 
-    public static final String ARG_PAGE = "AccountFragment";
-
-    private int mPage;
-
-    public static AccountFragment newInstance(int page) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
-        AccountFragment frag = new AccountFragment();
-        frag.setArguments(args);
-
-        return frag;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
     }
 
     @Override

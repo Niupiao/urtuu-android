@@ -31,7 +31,7 @@
             android:name=".Shop.ItemListActivity"
             android:label="@string/title_activity_item_list"
             android:parentActivityName=".Main.MainActivity"
-            android:theme="@style/noAnimTheme">
+            android:theme="@style/noAnimTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ohjoseph.com.urtuu.Main.MainActivity" />
@@ -39,6 +39,13 @@
         <activity
             android:name=".Shop.ItemActivity"
             android:parentActivityName=".Shop.ItemListActivity" />
+        <activity
+            android:name=".Sell.NewItemActivity"
+            android:label="@string/title_activity_new_item" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

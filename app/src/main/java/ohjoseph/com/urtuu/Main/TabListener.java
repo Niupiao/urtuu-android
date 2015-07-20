@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import ohjoseph.com.urtuu.R;
-import ohjoseph.com.urtuu.Sell.SellViewPagerFragment;
+import ohjoseph.com.urtuu.Sell.SellFragment;
 import ohjoseph.com.urtuu.Shop.ShopFragment;
 
 /**
@@ -15,7 +15,7 @@ public class TabListener implements TabLayout.OnTabSelectedListener {
 
     FragmentManager mFm;
     ShopFragment mShopFragment;
-    SellViewPagerFragment mSellFragment;
+    SellFragment mSellFragment;
 
     String tag;
     boolean test;
@@ -23,7 +23,7 @@ public class TabListener implements TabLayout.OnTabSelectedListener {
     public TabListener(FragmentManager fm) {
         mFm = fm;
         mShopFragment = new ShopFragment();
-        mSellFragment = new SellViewPagerFragment();
+        mSellFragment = new SellFragment();
         tag = "ShopFragment";
 
         mFm.beginTransaction()
