@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import ohjoseph.com.urtuu.Data.DataSource;
+import ohjoseph.com.urtuu.Data.Item;
 import ohjoseph.com.urtuu.R;
 
 /**
@@ -55,6 +57,13 @@ public class NewItemFragment extends Fragment {
         TextView shipWithinTV = (TextView) v.findViewById(R.id.ships_within);
 
         TextView listButton = (TextView) v.findViewById(R.id.list_button);
+        listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataSource.get(getActivity()).addItemToSell(new Item("New Item"));
+                getActivity().finish();
+            }
+        });
 
         return v;
     }
