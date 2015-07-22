@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import ohjoseph.com.urtuu.R;
 import ohjoseph.com.urtuu.Shop.CartFragment;
@@ -14,6 +15,7 @@ import ohjoseph.com.urtuu.Shop.CartFragment;
 public class MainActivity extends AppCompatActivity {
 
     TabListener mTabListener;
+    TextView mTitleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up toolbar as action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
+        mTitleText = (TextView) findViewById(R.id.title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -60,5 +63,9 @@ public class MainActivity extends AppCompatActivity {
         // Pops the fragment at the top of the stack
         getSupportFragmentManager().popBackStack();
         return true;
+    }
+
+    public void setTitle(String title) {
+        mTitleText.setText(title);
     }
 }

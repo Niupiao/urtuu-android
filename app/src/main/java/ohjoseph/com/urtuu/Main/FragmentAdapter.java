@@ -4,12 +4,6 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import ohjoseph.com.urtuu.Sell.SellFragment;
-import ohjoseph.com.urtuu.Shop.ShopFragment;
-import ohjoseph.com.urtuu.Tabs.AccountFragment;
-import ohjoseph.com.urtuu.Tabs.BrowseFragment;
-import ohjoseph.com.urtuu.Tabs.ExploreFragment;
-
 /**
  * Created by Joseph on 7/3/15.
  */
@@ -31,17 +25,8 @@ public class FragmentAdapter extends android.support.v4.app.FragmentPagerAdapter
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new ShopFragment();
-        } else if (position == 1) {
-            return new SellFragment();
-        } else if (position == 2) {
-            return new BrowseFragment();
-        } else if (position == 3) {
-            return new ExploreFragment();
-        } else {
-            return new AccountFragment();
-        }
+        // Empty method
+        return null;
     }
 
     @Override

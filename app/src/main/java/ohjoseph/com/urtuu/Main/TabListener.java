@@ -4,6 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
+import ohjoseph.com.urtuu.MyAccount.AccountFragment;
 import ohjoseph.com.urtuu.R;
 import ohjoseph.com.urtuu.Sell.SellFragment;
 import ohjoseph.com.urtuu.Shop.ShopFragment;
@@ -16,14 +17,15 @@ public class TabListener implements TabLayout.OnTabSelectedListener {
     FragmentManager mFm;
     ShopFragment mShopFragment;
     SellFragment mSellFragment;
-
+    AccountFragment mAccountFragment;
+    Fragment curFragment;
     String tag;
-    boolean test;
 
     public TabListener(FragmentManager fm) {
         mFm = fm;
         mShopFragment = new ShopFragment();
         mSellFragment = new SellFragment();
+        mAccountFragment = new AccountFragment();
         tag = "ShopFragment";
 
         mFm.beginTransaction()
@@ -34,29 +36,20 @@ public class TabListener implements TabLayout.OnTabSelectedListener {
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         int position = tab.getPosition();
-        Fragment curFragment;
-        boolean exists = true;
+        Fragment frag;
 
         if (position == 0) {
             tag = "ShopFragment";
-            curFragment = mFm.findFragmentByTag(tag);
-
-            if (curFragment == null) {
-                exists = false;
-                curFragment = mShopFragment;
-            }
-
-        } else {
+            frag = mShopFragment;
+        } else  if (position == 1) {
             tag = "SellFragment";
-            curFragment = mFm.findFragmentByTag(tag);
-
-            if (curFragment == null) {
-                exists = false;
-                curFragment = mSellFragment;
-            }
+            frag = mSellFragment;
+        } else {
+            tag = "AccountFragment";
+            frag = mAccountFragment;
         }
 
-        if (exists) {
+        if (getSelectedTab(frag)) {
             mFm.beginTransaction().show(curFragment).commit();
         } else {
             mFm.beginTransaction().add(R.id.fragment_container_tab, curFragment, tag).commit();
@@ -80,4 +73,15 @@ public class TabListener implements TabLayout.OnTabSelectedListener {
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {}
+
+    private boolean getSelectedTab(Fragment frag) {
+        curFragment = mFm.findFragmentByTag(tag);
+
+        if (curFragment == null) {
+            curFragment = frag;
+            return false;
+        }
+
+        return true;
+    }
 }
