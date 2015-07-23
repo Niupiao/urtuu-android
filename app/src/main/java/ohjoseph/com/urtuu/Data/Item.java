@@ -1,5 +1,8 @@
 package ohjoseph.com.urtuu.Data;
 
+import android.util.Log;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -12,13 +15,14 @@ import ohjoseph.com.urtuu.R;
 public class Item {
 
     String mName;
+    int mId;
     String mCategory;
     String mSubcategory;
     boolean mHeart;
     ArrayList<Integer> mImages = new ArrayList<>(5);
     double mPrice;
     double mSellerRating;
-    String mSeller;
+    int mSellerId;
     int mPaymentMethod;
     String mBrand;
     String mSize;
@@ -47,7 +51,21 @@ public class Item {
     }
 
     public Item(JSONObject obj) {
-        new Item("Item");
+        try {
+            Log.d("JSON", obj.toString());
+            mId = obj.getInt("id");
+            mSellerId = obj.getInt("seller_id");
+            mName = obj.getString("item_name");
+            mCategory = obj.getString("item_type");
+            mPrice = obj.getDouble("charge");
+
+            mHeart = false;
+            mImages.add(R.drawable.s6_3);
+            mImages.add(R.drawable.small_s6);
+            mImages.add(R.drawable.s6_2);
+        } catch (JSONException e) {
+            Log.e("Error", e.toString());
+        }
     }
 
     public boolean isHeart() {
@@ -86,12 +104,12 @@ public class Item {
         mSellerRating = sellerRating;
     }
 
-    public String getSeller() {
-        return mSeller;
+    public int getSeller() {
+        return mSellerId;
     }
 
-    public void setSeller(String seller) {
-        mSeller = seller;
+    public void setSeller(int seller) {
+        mSellerId = seller;
     }
 
     public int getPaymentMethod() {

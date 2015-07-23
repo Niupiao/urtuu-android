@@ -18,6 +18,7 @@ public class DataSource {
     ArrayList<Item> mItems;
     ArrayList<Item> mCart;
     ArrayList<Item> mSellerList;
+    ArrayList<Item> mOrderItems;
 
     public static DataSource get(Context context) {
         if (sDataSource == null) {
@@ -37,6 +38,7 @@ public class DataSource {
         mCart = new ArrayList<>(1);
         mCategories = new ArrayList<>(4);
         mSellerList = new ArrayList<>();
+        mOrderItems = new ArrayList<>();
 
         // Add temp data
         for (int i = 0; i < 15; i++) {
@@ -73,8 +75,26 @@ public class DataSource {
         mCart.add(i);
     }
 
+    public ArrayList<Item> getOrderItems() {
+        return mOrderItems;
+    }
+
+    public void setOrderItems(ArrayList<Item> orderItems) {
+        mOrderItems = orderItems;
+    }
+
     public Item getItem(String name) {
         for (Item c : mItems) {
+            if (c.getName().equals(name)) {
+                return c;
+            }
+        }
+
+        return null;
+    }
+
+    public Item getOrder(String name) {
+        for (Item c : mOrderItems) {
             if (c.getName().equals(name)) {
                 return c;
             }

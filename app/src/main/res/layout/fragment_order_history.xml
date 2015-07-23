@@ -20,16 +20,6 @@
             android:textColor="@color/secondary_text"
             android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/filter"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="Filter Orders >>"
-            android:textColor="@color/colorPrimary"/>
-
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout

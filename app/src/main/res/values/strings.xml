@@ -33,4 +33,5 @@
     <string name="title_activity_item_list">ItemListActivity</string>
     <string name="title_activity_cart">CartActivity</string>
     <string name="title_activity_new_item">NewItemActivity</string>
+    <string name="title_activity_order_item">OrderItemActivity</string>
 </resources>
