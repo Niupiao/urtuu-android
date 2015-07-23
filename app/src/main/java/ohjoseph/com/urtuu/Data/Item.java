@@ -16,6 +16,7 @@ public class Item {
 
     String mName;
     int mId;
+    String mStatus;
     String mCategory;
     String mSubcategory;
     boolean mHeart;
@@ -58,6 +59,7 @@ public class Item {
             mName = obj.getString("item_name");
             mCategory = obj.getString("item_type");
             mPrice = obj.getDouble("charge");
+            mStatus = obj.getString("status");
 
             mHeart = false;
             mImages.add(R.drawable.s6_3);
@@ -142,6 +144,14 @@ public class Item {
 
     public void setTags(ArrayList<String> tags) {
         mTags = tags;
+    }
+
+    public String getStatus() {
+        return mStatus;
+    }
+
+    public void setStatus(String status) {
+        mStatus = status;
     }
 
     public ArrayList<Integer> getImages() {

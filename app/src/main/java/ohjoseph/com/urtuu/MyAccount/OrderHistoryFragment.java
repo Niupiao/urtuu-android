@@ -109,6 +109,7 @@ public class OrderHistoryFragment extends Fragment {
         ImageView picture;
         TextView name;
         TextView price;
+        TextView status;
         Item mItem;
 
         public OrderHolder(View v) {
@@ -126,6 +127,7 @@ public class OrderHistoryFragment extends Fragment {
             picture = (ImageView) v.findViewById(R.id.item_picture);
             name = (TextView) v.findViewById(R.id.item_name);
             price = (TextView) v.findViewById(R.id.item_price);
+            status = (TextView) v.findViewById(R.id.item_status);
         }
     }
 
@@ -150,6 +152,7 @@ public class OrderHistoryFragment extends Fragment {
 
             // Set attributes of holder
             holder.mItem = item;
+            holder.status.setText(item.getStatus());
             holder.name.setText(item.getName());
             holder.price.setText("$" + item.getPrice());
         }
