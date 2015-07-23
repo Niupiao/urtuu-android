@@ -9,6 +9,8 @@ public class User {
     String mUsername;
     String mFirstName;
     String mLastName;
+    final String mEmail;
+    final String mPassword;
 
     public static User get() {
         if (sUser == null) {
@@ -22,6 +24,16 @@ public class User {
         mUsername = "sampleperson93";
         mFirstName = "Sample";
         mLastName = "Person";
+        mEmail = "asdf@gmail.com";
+        mPassword = "asdfasdf";
+    }
+
+    public String getEmail() {
+        return mEmail;
+    }
+
+    public String getPassword() {
+        return mPassword;
     }
 
     public String getName() {

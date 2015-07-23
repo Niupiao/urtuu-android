@@ -103,7 +103,7 @@ public class BuyItemListFragment extends Fragment {
         return v;
     }
 
-    // Method to sort items TODO: Implement Sort
+    // Method to sort items
     private void sortItems(int which) {
         if (which == 0) { // Sort by Hot
             Collections.sort(mItems, new Comparator<Item>() {

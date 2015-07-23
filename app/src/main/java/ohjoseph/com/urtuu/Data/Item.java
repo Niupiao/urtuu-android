@@ -1,5 +1,7 @@
 package ohjoseph.com.urtuu.Data;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import ohjoseph.com.urtuu.R;
@@ -42,6 +44,10 @@ public class Item {
         mImages.add(R.drawable.s6_3);
         mImages.add(R.drawable.small_s6);
         mImages.add(R.drawable.s6_2);
+    }
+
+    public Item(JSONObject obj) {
+        new Item("Item");
     }
 
     public boolean isHeart() {
