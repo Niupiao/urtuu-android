@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="ohjoseph.com.urtuu.Sell.NewItemActivity">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar"
+                 android:id="@+id/stub_id" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
+
+    </LinearLayout>
+
+    <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+    <LinearLayout
+        android:id="@+id/dummy"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+    <LinearLayout
+        android:id="@+id/search_toolbar"
+        android:layout_below="@id/toolbar"
+        android:gravity="center_vertical"
+        android:background="#CDFFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@android:drawable/ic_menu_search"/>
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:background="#80bcbcbc"
+            android:layout_weight="1"
+            android:hint="@string/search"
+            android:paddingLeft="6dp"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/search_toolbar"
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#50bcbcbc" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:animateLayoutChanges="true"
+        android:layout_below="@id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
