@@ -2,16 +2,28 @@ package ohjoseph.com.urtuu.MyAccount;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.Item;
+import ohjoseph.com.urtuu.Data.User;
+import ohjoseph.com.urtuu.Data.VolleySingleton;
 import ohjoseph.com.urtuu.R;
 
 /**
@@ -19,6 +31,9 @@ import ohjoseph.com.urtuu.R;
  */
 public class OrderHistoryFragment extends Fragment {
 
+    OrderItemAdapter mAdapter;
+    RecyclerView rv;
+    SwipeRefreshLayout mSwiper;
     ArrayList<Item> mOrderItems;
 
     @Override
@@ -31,13 +46,58 @@ public class OrderHistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_order_history, parent, false);
 
-        RecyclerView rv = (RecyclerView) v.findViewById(R.id.orders_rv);
-        OrderItemAdapter adapter = new OrderItemAdapter(mOrderItems);
+        mSwiper = (SwipeRefreshLayout) v.findViewById(R.id.refreshswiper);
+        mSwiper.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getOrderHistory();
+            }
+        });
+
+        rv = (RecyclerView) v.findViewById(R.id.orders_rv);
+        mAdapter = new OrderItemAdapter(mOrderItems);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        rv.setAdapter(adapter);
+        rv.setAdapter(mAdapter);
         rv.setLayoutManager(llm);
 
+        // Fetch data from server
+        getOrderHistory();
+
         return v;
+    }
+
+    public void getOrderHistory() {
+        String url = DataSource.url + "mreceipts?email=";
+        url += User.get().getEmail() + "&password=" + User.get().getPassword();
+
+        JsonArrayRequest request = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+                // Retreive data from server
+                mOrderItems = new ArrayList<>();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    try {
+                        JSONObject obj = jsonArray.getJSONObject(i);
+                        Item item = new Item(obj);
+                        mOrderItems.add(item);
+                    } catch (JSONException e) {
+                        // Do Nothing
+                    }
+                }
+                // Update recyclerview
+                mAdapter = new OrderItemAdapter(mOrderItems);
+                rv.setAdapter(mAdapter);
+                mSwiper.setRefreshing(false);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getActivity(), volleyError.toString(), Toast.LENGTH_LONG).show();
+                return;
+            }
+        });
+        VolleySingleton.getInstance(getActivity()).addToRequestQueue(request);
     }
 
     public class OrderHolder extends RecyclerView.ViewHolder {

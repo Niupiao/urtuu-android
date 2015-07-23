@@ -12,6 +12,7 @@ import ohjoseph.com.urtuu.R;
 public class DataSource {
 
     public static DataSource sDataSource;
+    public static final String url = "https://niupiaomarket.herokuapp.com/";
     private Context mContext;
     ArrayList<Category> mCategories;
     ArrayList<Item> mItems;
@@ -43,7 +44,7 @@ public class DataSource {
             mItems.add(item);
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             Item item = new Item("Samsung Galaxy S6 Edge", "All", "All");
             mCart.add(item);
             mSellerList.add(item);
