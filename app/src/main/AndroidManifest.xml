@@ -41,7 +41,8 @@
             android:parentActivityName=".Shop.ItemListActivity" />
         <activity
             android:name=".Sell.NewItemActivity"
-            android:label="@string/title_activity_new_item" >
+            android:label="@string/title_activity_new_item"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main.MainActivity"/>
