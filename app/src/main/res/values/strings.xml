@@ -13,9 +13,9 @@
         <item>Price: High to Low</item>
     </array>
 
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_item_list">ItemListActivity</string>
     <string name="title_activity_cart">CartActivity</string>
+
+    <string name="facebook_app_id">13e17b2a7d91b89562d7bb483e983b8d</string>
 </resources>

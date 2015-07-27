@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.Tabs;
+package ohjoseph.com.urtuu.SellScreen;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

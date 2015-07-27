@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import ohjoseph.com.urtuu.Tabs.AccountFragment;
 import ohjoseph.com.urtuu.Tabs.BrowseFragment;
 import ohjoseph.com.urtuu.Tabs.ExploreFragment;
-import ohjoseph.com.urtuu.Tabs.SellFragment;
+import ohjoseph.com.urtuu.SellScreen.SellFragment;
 import ohjoseph.com.urtuu.ShopScreen.ShopFragment;
 
 /**
