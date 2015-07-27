@@ -1,5 +1,7 @@
 package ohjoseph.com.urtuu.Data;
 
+import java.util.ArrayList;
+
 /**
  * Created by Joseph on 7/22/15.
  */
@@ -9,6 +11,8 @@ public class User {
     String mUsername;
     String mFirstName;
     String mLastName;
+    ArrayList<Address> mAddresses;
+    ArrayList<String> mPhoneNumbers;
     final String mEmail;
     final String mPassword;
 
@@ -24,8 +28,12 @@ public class User {
         mUsername = "sampleperson93";
         mFirstName = "Sample";
         mLastName = "Person";
-        mEmail = "asdf@gmail.com";
-        mPassword = "asdfasdf";
+        mEmail = "foo@bar.com";
+        mPassword = "password";
+        mAddresses = new ArrayList<>();
+        mPhoneNumbers = new ArrayList<>();
+        mAddresses.add(new Address("North Adams", "12", "Porches", "Veazie St", "28"));
+        mPhoneNumbers.add("123-456-7890");
     }
 
     public String getEmail() {
@@ -62,5 +70,19 @@ public class User {
 
     public void setLastName(String lastName) {
         mLastName = lastName;
+    }
+
+    public ArrayList<Address> getAddresses() {
+        return mAddresses;
+    }
+
+    public void setAddresses(ArrayList<Address> addresses) {
+        mAddresses = addresses;
+    }
+
+    public ArrayList<String> getPhoneNumbers() { return mPhoneNumbers; }
+
+    public void setPhoneNumbers(ArrayList<String> phoneNumbers) {
+        mPhoneNumbers = phoneNumbers;
     }
 }
