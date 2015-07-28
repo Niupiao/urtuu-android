@@ -2,11 +2,13 @@ package ohjoseph.com.urtuu.MyAccount.Profile;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,10 +34,19 @@ public class EditProfileActivity extends ActionBarActivity {
     private EditText mLastName;
     private Button mUpdateButton;
 
+    private TextView mTitleText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        // Set up toolbar as action bar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
+        mTitleText = (TextView) findViewById(R.id.title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         mUser = User.get();
         if(mUser.getName() != null) {
             setTitle(mUser.getName());

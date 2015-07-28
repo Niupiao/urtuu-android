@@ -2,6 +2,7 @@ package ohjoseph.com.urtuu.MyAccount.Payments;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -42,10 +44,18 @@ public class MyPaymentsActivity extends ActionBarActivity {
 
     private User mUser;
 
+    private TextView mTitleText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_payments);
+
+        // Set up toolbar as action bar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
+        mTitleText = (TextView) findViewById(R.id.title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mUser = User.get();
 
