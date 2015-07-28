@@ -2,10 +2,12 @@ package ohjoseph.com.urtuu.MyAccount.Deliveries;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -35,10 +37,18 @@ public class MyDeliveriesActivity extends ActionBarActivity {
     private ArrayList<Receipt> mDeliveries;
     private ArrayList<HashMap<String, String>> mDeliveryMap;
 
+    private TextView mTitleText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_deliveries);
+
+        // Set up toolbar as action bar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
+        mTitleText = (TextView) findViewById(R.id.title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mUser = User.get();
         mDeliveryLV = (ListView)findViewById(R.id.delivery_lv);

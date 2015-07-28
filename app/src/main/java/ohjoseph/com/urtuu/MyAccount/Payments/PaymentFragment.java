@@ -50,6 +50,7 @@ public class PaymentFragment extends DialogFragment {
     private EditText mCardHolderEt;
     private EditText mExpMonthEt;
     private EditText mExpYearEt;
+    private boolean mNewPayment = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,18 @@ public class PaymentFragment extends DialogFragment {
 
         View v;
 
-        if(mPayment.payment_type.equals("wire") || mPayment.payment_type.equals("deposit")) {
+        if(mPayment == null) {
+            v = inflater.inflate(R.layout.fragment_new_payment, container, false);
+            mTypeEt = (EditText) v.findViewById(R.id.type_et);
+            mBankAccountEt = (EditText) v.findViewById(R.id.bank_account_et);
+            mCardNumberEt = (EditText) v.findViewById(R.id.card_number_et);
+            mCVVEt = (EditText) v.findViewById(R.id.cvv_et);
+            mCardHolderEt = (EditText) v.findViewById(R.id.card_holder_et);
+            mExpMonthEt = (EditText) v.findViewById(R.id.exp_month_et);
+            mExpYearEt = (EditText) v.findViewById(R.id.exp_year_et);
+
+        }
+        else if(mPayment.payment_type.equals("wire") || mPayment.payment_type.equals("deposit")) {
             v = inflater.inflate(R.layout.fragment_bank_payment, container, false);
             mTypeEt = (EditText) v.findViewById(R.id.type_et);
             mBankAccountEt = (EditText) v.findViewById(R.id.bank_account_et);
@@ -118,7 +130,14 @@ public class PaymentFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 DataSource data = DataSource.get(getActivity().getApplicationContext());
-                String url = data.url + "mupdatepaymentmethod?";
+                String url;
+                if(mNewPayment) {
+                    url = data.url + "maddpayment?";
+                }
+                else {
+                    url = data.url + "mupdatepayment?";
+                    url += "id=" + mPayment.id + "&";
+                }
                 url += "email=" + mUser.getEmail();
                 url += "&password=" + mUser.getPassword();
                 url += "&payment_type=" + URLEncoder.encode(mTypeEt.getText().toString());

@@ -2,6 +2,7 @@ package ohjoseph.com.urtuu.MyAccount.Info;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,10 +30,18 @@ public class MyInfoActivity extends ActionBarActivity {
     private ArrayList<Address> mAddresses;
     private ArrayList<String> mPhoneNumbers;
 
+    private TextView mTitleText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_info);
+
+        // Set up toolbar as action bar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.action_toolbar);
+        mTitleText = (TextView) findViewById(R.id.title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mAddAddress = (ImageView) findViewById(R.id.add_address);
         mAddAddress.setOnClickListener(new View.OnClickListener() {
