@@ -8,4 +8,10 @@
         android:orderInCategory="100"
         android:title="@string/cart_icon"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        app:showAsAction="never"/>
+
 </menu>

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Urtuu.iml" filepath="$PROJECT_DIR$/Urtuu.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/urtuu-android.iml" filepath="$PROJECT_DIR$/urtuu-android.iml" />
     </modules>
   </component>
 </project>
-

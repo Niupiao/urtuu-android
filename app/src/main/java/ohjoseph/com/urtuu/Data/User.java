@@ -16,15 +16,16 @@ public class User {
     final String mEmail;
     final String mPassword;
 
-    public static User get() {
-        if (sUser == null) {
-            sUser = new User();
-        }
+    public static User create(String email, String password) {
+        sUser = new User(email, password);
+        return  sUser;
+    }
 
+    public static User get() {
         return sUser;
     }
 
-    private User() {
+    private User(String email, String password) {
         mUsername = "sampleperson93";
         mFirstName = "Sample";
         mLastName = "Person";

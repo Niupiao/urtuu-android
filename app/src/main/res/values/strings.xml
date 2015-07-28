@@ -20,6 +20,7 @@
     <string name="show_cart">Open Cart</string>
     <string name="sort">Sort</string>
     <string name="sort_by">Sort by...</string>
+    <string name="login_remember">Remember Me</string>
     <array name="sort_options">
         <item>Hot</item>
         <item>New</item>
@@ -45,4 +46,5 @@
     <string name="title_activity_my_accounts">MyAccountsActivity</string>
     <string name="title_activity_my_ratings">MyRatingsActivity</string>
     <string name="title_activity_order_item">OrderItemActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

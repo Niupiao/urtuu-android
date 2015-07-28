@@ -1,5 +1,6 @@
 package ohjoseph.com.urtuu.Main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -49,13 +50,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.cart) { // Show the cart
-            CartFragment cartFrag = new CartFragment();
-            cartFrag.show(getSupportFragmentManager(), "My Cart");
-            return true;
+        switch (id) {
+            case R.id.cart: // Show the cart
+                CartFragment cartFrag = new CartFragment();
+                cartFrag.show(getSupportFragmentManager(), "My Cart");
+                return true;
+            case R.id.logout:
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

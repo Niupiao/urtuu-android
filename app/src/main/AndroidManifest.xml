@@ -90,6 +90,10 @@
             android:name=".MyAccount.Reviews.MyRatingsActivity"
             android:label="@string/title_activity_my_ratings" >
         </activity>
+        <activity
+            android:name=".Main.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
     </application>
 
 </manifest>
