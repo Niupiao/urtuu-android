@@ -27,11 +27,22 @@
         <item>Price: High to Low</item>
     </array>
 
-
+    <string name="update">Update</string>
+    <string name="confirm">Send Confirmation</string>
+    <string name="accept">Accept</string>
+    <string name="add_address">Add Address</string>
+    <string name="add_phone">Add Phone</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_item_list">ItemListActivity</string>
     <string name="title_activity_cart">CartActivity</string>
     <string name="title_activity_new_item">NewItemActivity</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="title_activity_my_payments">MyPaymentsActivity</string>
+    <string name="title_activity_my_deliveries">MyDeliveriesActivity</string>
+    <string name="title_activity_my_info">MyInfoActivity</string>
+    <string name="title_activity_confirmation">ConfirmationActivity</string>
+    <string name="title_activity_my_accounts">MyAccountsActivity</string>
+    <string name="title_activity_my_ratings">MyRatingsActivity</string>
     <string name="title_activity_order_item">OrderItemActivity</string>
 </resources>

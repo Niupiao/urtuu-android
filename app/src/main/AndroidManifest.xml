@@ -50,6 +50,7 @@
             android:name=".Sell.NewItemActivity"
             android:label="@string/title_activity_new_item"
             android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main.MainActivity" />
@@ -59,7 +60,35 @@
             android:label="@string/title_activity_order_item" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main.MainActivity"/>
+                android:value=".Main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MyAccount.Profile.EditProfileActivity"
+            android:label="@string/title_activity_edit_profile" >
+        </activity>
+        <activity
+            android:name=".MyAccount.Payments.MyPaymentsActivity"
+            android:label="@string/title_activity_my_payments" >
+        </activity>
+        <activity
+            android:name=".MyAccount.Deliveries.MyDeliveriesActivity"
+            android:label="@string/title_activity_my_deliveries" >
+        </activity>
+        <activity
+            android:name=".MyAccount.Info.MyInfoActivity"
+            android:label="@string/title_activity_my_info" >
+        </activity>
+        <activity
+            android:name=".MyAccount.ConfirmationActivity"
+            android:label="@string/title_activity_confirmation" >
+        </activity>
+        <activity
+            android:name=".MyAccount.MyAccountsActivity"
+            android:label="@string/title_activity_my_accounts" >
+        </activity>
+        <activity
+            android:name=".MyAccount.Reviews.MyRatingsActivity"
+            android:label="@string/title_activity_my_ratings" >
         </activity>
     </application>
 
