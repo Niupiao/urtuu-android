@@ -108,7 +108,7 @@ public class SellFragment extends Fragment {
             Item item = items.get(position);
 
             // Set item picture
-            holder.picture.setImageResource(item.getPictureId());
+            //holder.picture.setImageResource(item.getPictureId());
         }
 
         @Override
