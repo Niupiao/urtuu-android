@@ -20,11 +20,10 @@ import org.json.JSONObject;
 import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.User;
 import ohjoseph.com.urtuu.Data.VolleySingleton;
-import ohjoseph.com.urtuu.MyAccount.Deliveries.MyDeliveriesActivity;
-import ohjoseph.com.urtuu.MyAccount.Info.MyInfoActivity;
-import ohjoseph.com.urtuu.MyAccount.Payments.MyPaymentsActivity;
-import ohjoseph.com.urtuu.MyAccount.Profile.EditProfileActivity;
-import ohjoseph.com.urtuu.MyAccount.Reviews.MyRatingsActivity;
+import ohjoseph.com.urtuu.MyAccount.Settings.MyDeliveriesActivity;
+import ohjoseph.com.urtuu.MyAccount.Settings.MyInfoActivity;
+import ohjoseph.com.urtuu.MyAccount.Settings.MyPaymentsActivity;
+import ohjoseph.com.urtuu.MyAccount.Settings.MyRatingsActivity;
 import ohjoseph.com.urtuu.R;
 
 /**
@@ -45,7 +44,7 @@ public class InfoFragment extends Fragment {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), EditProfileActivity.class);
+                Intent i = new Intent(getActivity(), MyRatingsActivity.EditProfileActivity.class);
                 startActivity(i);
             }
         });

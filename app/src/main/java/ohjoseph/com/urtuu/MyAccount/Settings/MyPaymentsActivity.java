@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.MyAccount.Payments;
+package ohjoseph.com.urtuu.MyAccount.Settings;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

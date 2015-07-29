@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.MyAccount.Payments;
+package ohjoseph.com.urtuu.MyAccount.Settings;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,12 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +20,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONObject;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 
-import ohjoseph.com.urtuu.Data.Address;
 import ohjoseph.com.urtuu.Data.DataSource;
-import ohjoseph.com.urtuu.Data.Item;
 import ohjoseph.com.urtuu.Data.Payment;
 import ohjoseph.com.urtuu.Data.User;
 import ohjoseph.com.urtuu.Data.VolleySingleton;

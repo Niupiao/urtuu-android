@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.MyAccount.Info;
+package ohjoseph.com.urtuu.MyAccount.Settings;
 
 import android.app.Fragment;
 import android.os.Bundle;

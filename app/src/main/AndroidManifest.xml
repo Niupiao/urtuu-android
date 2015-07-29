@@ -68,19 +68,19 @@
                 android:value=".Main.MainActivity" />
         </activity>
         <activity
-            android:name=".MyAccount.Profile.EditProfileActivity"
+            android:name=".MyAccount.Settings.MyRatingsActivity$EditProfileActivity"
             android:label="@string/title_activity_edit_profile" >
         </activity>
         <activity
-            android:name=".MyAccount.Payments.MyPaymentsActivity"
+            android:name=".MyAccount.Settings.MyPaymentsActivity"
             android:label="@string/title_activity_my_payments" >
         </activity>
         <activity
-            android:name=".MyAccount.Deliveries.MyDeliveriesActivity"
+            android:name=".MyAccount.Settings.MyDeliveriesActivity"
             android:label="@string/title_activity_my_deliveries" >
         </activity>
         <activity
-            android:name=".MyAccount.Info.MyInfoActivity"
+            android:name=".MyAccount.Settings.MyInfoActivity"
             android:label="@string/title_activity_my_info" >
         </activity>
         <activity
@@ -92,7 +92,7 @@
             android:label="@string/title_activity_my_accounts" >
         </activity>
         <activity
-            android:name=".MyAccount.Reviews.MyRatingsActivity"
+            android:name=".MyAccount.Settings.MyRatingsActivity"
             android:label="@string/title_activity_my_ratings" >
         </activity>
     </application>

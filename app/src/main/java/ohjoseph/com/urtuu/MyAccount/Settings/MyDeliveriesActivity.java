@@ -1,4 +1,4 @@
-package ohjoseph.com.urtuu.MyAccount.Deliveries;
+package ohjoseph.com.urtuu.MyAccount.Settings;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
