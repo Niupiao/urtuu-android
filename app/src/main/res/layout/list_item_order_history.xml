@@ -15,7 +15,7 @@
         android:layout_marginRight="10dp"
         android:layout_alignParentLeft="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/s6_2"/>
+        android:src="@drawable/s6_3"/>
 
     <LinearLayout
         android:orientation="vertical"

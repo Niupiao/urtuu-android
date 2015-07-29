@@ -37,7 +37,6 @@ public class Item {
         mHeart = false;
         mImages.add(R.drawable.s6_3);
         mImages.add(R.drawable.small_s6);
-        mImages.add(R.drawable.s6_2);
     }
 
     public Item(String name) {
@@ -48,7 +47,6 @@ public class Item {
         mHeart = false;
         mImages.add(R.drawable.s6_3);
         mImages.add(R.drawable.small_s6);
-        mImages.add(R.drawable.s6_2);
     }
 
     public Item(JSONObject obj) {
@@ -64,7 +62,6 @@ public class Item {
             mHeart = false;
             mImages.add(R.drawable.s6_3);
             mImages.add(R.drawable.small_s6);
-            mImages.add(R.drawable.s6_2);
         } catch (JSONException e) {
             Log.e("Error", e.toString());
         }

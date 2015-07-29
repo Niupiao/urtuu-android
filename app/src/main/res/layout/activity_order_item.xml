@@ -25,7 +25,7 @@
             android:layout_height="100dp"
             android:layout_alignParentLeft="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/s6_2"/>
+            android:src="@drawable/s6_3"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
