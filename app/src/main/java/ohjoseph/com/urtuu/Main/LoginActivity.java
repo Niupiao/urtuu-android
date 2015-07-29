@@ -1,10 +1,10 @@
 package ohjoseph.com.urtuu.Main;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -12,10 +12,10 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordField;
     private EditText mIdField;
     private LinearLayout ll;
-    private ImageView logo;
+    private LinearLayout logo;
     private LinearLayout loader;
     boolean loggedOut;
     private final Context context = this;
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         // Get views
         ll = (LinearLayout) findViewById(R.id.sliding_ll);
-        logo = (ImageView) findViewById(R.id.image);
+        logo = (LinearLayout) findViewById(R.id.image);
         loader = (LinearLayout) findViewById(R.id.loading_circle);
         mIdField = (EditText) findViewById(R.id.username_et);
         mPasswordField = (EditText) findViewById(R.id.password_et);
@@ -62,6 +62,9 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Hide keyboard and start animation
+                InputMethodManager inputMethodManager = (InputMethodManager)  getSystemService(Activity.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 startLoginAnimation();
 
                 // Delayed start
@@ -81,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         if (settings.getBoolean("rememberLogin", false)) {
             // Automatically log in user
             if (!loggedOut) {
-                mLoginButton.callOnClick();
+                //mLoginButton.callOnClick();
             }
             mIdField.setText(settings.getString("login", ""));
             mRememberCheckBox.setChecked(settings.getBoolean("rememberLogin", false));
@@ -171,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
         loader.setVisibility(View.VISIBLE);
 
         // Move logo down
-        Animation moveDown = new TranslateAnimation(0, 0, 0, 200);
+        Animation moveDown = new TranslateAnimation(0, 0, 0, 300);
         moveDown.setDuration(600);
         moveDown.setStartOffset(200);
         moveDown.setInterpolator(new DecelerateInterpolator());

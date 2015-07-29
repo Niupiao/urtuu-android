@@ -11,4 +11,12 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
+    <style name="Theme.App.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">#BBFFFFFF</item>
+        <item name="colorControlActivated">#BBFFFFFF</item>
+        <item name="colorControlHighlight">#BBFFFFFF</item>
+        <item name="android:textColorHint">#FFFFFF</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>

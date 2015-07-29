@@ -1,7 +1,7 @@
 package ohjoseph.com.urtuu.MyAccount.Payments;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,12 +27,11 @@ import java.util.HashMap;
 
 import ohjoseph.com.urtuu.Data.DataSource;
 import ohjoseph.com.urtuu.Data.Payment;
-import ohjoseph.com.urtuu.Data.Receipt;
 import ohjoseph.com.urtuu.Data.User;
 import ohjoseph.com.urtuu.Data.VolleySingleton;
 import ohjoseph.com.urtuu.R;
 
-public class MyPaymentsActivity extends ActionBarActivity {
+public class MyPaymentsActivity extends AppCompatActivity {
 
     private ImageView mAddPayment;
 

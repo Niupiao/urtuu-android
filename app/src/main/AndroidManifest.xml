@@ -25,14 +25,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Main.MainActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTask" >
+            android:name=".Main.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Main.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
         </activity>
         <activity
             android:name=".Shop.ItemListActivity"
@@ -89,10 +94,6 @@
         <activity
             android:name=".MyAccount.Reviews.MyRatingsActivity"
             android:label="@string/title_activity_my_ratings" >
-        </activity>
-        <activity
-            android:name=".Main.LoginActivity"
-            android:label="@string/title_activity_login" >
         </activity>
     </application>
 
